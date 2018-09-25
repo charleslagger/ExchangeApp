@@ -1,3 +1,9 @@
+<h2>Thông tin tài khoản</h2>
+<p>Id: {{ (currentUser | async)?.collectorId }}</p>
+<p>First name: {{ (currentUser | async)?.firstName}}</p>
+<p>Surname: {{ (currentUser | async)?.lastName}}</p>
+
+
 <h2>My Penguins</h2>
 <table>
   <tr *ngFor="let penguin of myPenguins | async">

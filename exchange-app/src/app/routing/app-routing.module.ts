@@ -5,7 +5,8 @@ import { AccountComponent } from '../account/account.component';
 import { MessageComponent } from '../message/message.component';
 import { DaoComponent } from '../dao/dao.component';
 import { CartComponent } from '../cart/cart.component';
-import { LoginComponent } from '../login/login.component';
+import { SellComponent } from '../sell/sell.component';
+import { BalanceComponent } from '../balance/balance.component';
 
 const routes: Routes = [
   { path: '?loggedIn=true', redirectTo: '/home', pathMatch: 'full' },
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'message', component: MessageComponent },
   { path: 'dao', component: DaoComponent },
   { path: 'cart', component: CartComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'sell', component: SellComponent },
+  { path: 'balance', component: BalanceComponent },
 ];
 
 @NgModule({

@@ -11,6 +11,8 @@ import { MessageComponent } from './message/message.component';
 import { CartComponent } from './cart/cart.component';
 import { DaoComponent } from './dao/dao.component';
 import { LoginComponent } from './login/login.component';
+import { SellComponent } from './sell/sell.component';
+import { BalanceComponent } from './balance/balance.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { LoginComponent } from './login/login.component';
     MessageComponent,
     CartComponent,
     DaoComponent,
-    LoginComponent
+    LoginComponent,
+    SellComponent,
+    BalanceComponent
   ],
   imports: [
     BrowserModule,

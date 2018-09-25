@@ -1,0 +1,12 @@
+<h2>Create new Penguin</h2>
+<form (ngSubmit)="createPenguin()" #createProForm="ngForm">
+  Penguin name:<br>
+  <input type="text" [(ngModel)]="penguinObject.name" #name="ngModel" name="name">
+  <br>
+  Description:<br>
+  <input type="text" [(ngModel)]="penguinObject.description" #description="ngModel" name="description">
+  <br><br>
+  <button type="submit" class="primary">
+    <span>Sell</span>
+  </button>
+</form>

@@ -7,9 +7,6 @@ import { ComposerRestService } from './service/composer-rest-service.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-// export class AppComponent {
-//   title = 'exchange-app';
-// }
 
 export class AppComponent implements OnInit {
   title = 'exchange-app';
