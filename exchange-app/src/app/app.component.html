@@ -1,0 +1,25 @@
+<section *ngIf="!authenticated">
+  <h1>
+    Đăng nhập qua tài khoản github!
+  </h1>
+  <a href="http://localhost:3000/auth/github">Đăng nhập</a>
+</section>
+
+<div>
+  <nav class="menu">
+    <ul>
+      <li><a routerLink="/home">Trang chủ</a></li>
+      <li><a routerLink="/dao">Dạo</a></li>
+      <li><a routerLink="/message">Tin nhắn</a></li>
+      <li><a routerLink="/cart">Giỏ hàng</a></li>
+      <li><a routerLink="/account">Tài khoản</a></li>
+      <li><a routerLink="/login">Login</a></li>
+    </ul>
+    <form class="search-form">
+      <input type="text" placeholder="Tìm kiếm sản phẩm">
+      <button>Tìm kiếm</button>
+    </form>
+
+  </nav>
+  <router-outlet></router-outlet>
+</div>
