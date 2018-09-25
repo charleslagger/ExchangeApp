@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AccountService } from './account.service';
 
 @Component({
   selector: 'app-account',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountComponent implements OnInit {
 
-  constructor() { }
+  constructor(private accountService: AccountService) { }
 
+  private myPenguins;
   ngOnInit() {
+    this.myPenguins = this.getMyPenguins();
+  }
+
+  getMyPenguins() {
+    return this.accountService.getMyPenguins();
   }
 
 }

@@ -1,3 +1,22 @@
-<p>
-  home works!
-</p>
+<h2>Available Penguins</h2>
+<table>
+  <tr *ngFor="let penguin of availablePenguins | async">
+    <td>{{penguin.name}}</td>
+    <td>{{penguin.description}}</td>
+    <td><img src="assets/images/penguins/{{penguin.name}}.JPG" height="50px" width="50px"></td>
+    <td>
+      <button type="button" class="primary" (click)="buyPenguin(penguin.name)">
+        <div *ngIf="!buyInProgress || buyInProgress && penguin.name!==boughtPenguin">
+          <span>Buy</span>
+        </div>
+        <div *ngIf="buyInProgress && penguin.name===boughtPenguin" class="ibm-spinner-indeterminate small loop">
+          <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+              <circle class="circle-path" cx="50" cy="50" r="20" />
+            </svg>
+          </div>
+        </div>
+      </button>
+    </td>
+  </tr>
+</table>

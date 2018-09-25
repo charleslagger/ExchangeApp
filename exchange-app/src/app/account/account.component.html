@@ -1,3 +1,8 @@
-<p>
-  account works!
-</p>
+<h2>My Penguins</h2>
+<table>
+  <tr *ngFor="let penguin of myPenguins | async">
+    <td>{{penguin.name}}</td>
+    <td>{{penguin.description}}</td>
+    <td><img src="assets/images/penguins/{{penguin.name}}.JPG" height="50px" width="50px"></td>
+  </tr>
+</table>
