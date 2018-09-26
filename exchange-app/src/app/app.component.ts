@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ComposerRestService } from './service/composer-rest-service.service';
+import { HomeService } from './home/home.service';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,8 @@ export class AppComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private router: Router,
-    private restService: ComposerRestService) {
+    private restService: ComposerRestService,
+    private homeService: HomeService) {
   }
 
   private signUpInProgress = false;
@@ -49,11 +51,11 @@ export class AppComponent implements OnInit {
         console.log('Result of check wallet: ' + JSON.stringify(results));
         if (results['length'] > 0) {
           this.loggedIn = true;
-          return this.getCurrentUser();
-            // .then(() => {
-            //   this.congaName = this.CONGAS[this.getRandomIntInclusive(0, this.CONGAS.length - 1)];
-            //   return this.getAvailablePenguins();
-            // })
+          return this.getCurrentUser()
+            .then(() => {
+              // this.congaName = this.CONGAS[this.getRandomIntInclusive(0, this.CONGAS.length - 1)];
+              return this.homeService.getAvailablePenguins();
+            });
             // .then(() => {
             //   return this.getMyPenguins();
             // });

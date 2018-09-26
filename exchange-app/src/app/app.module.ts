@@ -13,6 +13,10 @@ import { DaoComponent } from './dao/dao.component';
 import { LoginComponent } from './login/login.component';
 import { SellComponent } from './sell/sell.component';
 import { BalanceComponent } from './balance/balance.component';
+import { HomeService } from './home/home.service';
+import { AccountService } from './account/account.service';
+import { ComposerRestService } from './service/composer-rest-service.service';
+import { SellService } from './sell/sell.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,12 @@ import { BalanceComponent } from './balance/balance.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    HomeService,
+    AccountService,
+    ComposerRestService,
+    SellService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
