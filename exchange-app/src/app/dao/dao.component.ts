@@ -7,18 +7,25 @@ import { DaoService } from './dao.service';
   styleUrls: ['./dao.component.css']
 })
 export class DaoComponent implements OnInit {
-
+  image;
   constructor(private daoService: DaoService) { }
 
   ngOnInit() {
   }
 
-  uploadFile(event) {
-    const files = event.target.files;
-    if (files.length > 0) {
-      console.log(files); // You will see the file
-      // this.daoService.uploadFile(files);
-    }
+  changeListener($event): void {
+    this.readThis($event.target);
+  }
+
+  readThis(inputValue: any): void {
+    const file: File = inputValue.files[0];
+    const myReader: FileReader = new FileReader();
+    myReader.onloadend = (e) => {
+      this.image = myReader.result;
+      console.log('==>' + this.image);
+    };
+
+    myReader.readAsDataURL(file);
   }
 
 }

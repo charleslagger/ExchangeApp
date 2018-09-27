@@ -4,7 +4,7 @@
 <p>Surname: {{ (currentUser | async)?.lastName}}</p>
 
 
-<h2>My Penguins</h2>
+<h2>Mặt hàng sở hữu</h2>
 <table>
   <tr *ngFor="let penguin of myPenguins | async">
     <td>{{penguin.name}}</td>

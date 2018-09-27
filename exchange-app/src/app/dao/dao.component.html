@@ -1,1 +1,9 @@
-<input id="file-field" name="file-field" (change)="uploadFile($event)" type="file" accept=".png,.jpg,.jpeg">
+<input type="file" accept="image/*" (change)="changeListener($event)">
+
+<div *ngIf="image">
+  <h3>Result:</h3>
+  <h4>Base64 encoded:</h4>
+  <p>{{image?.replace("data:image/png;base64,", "")}}</p>
+  <h4>Image:</h4>
+  <img src="{{image}}" alt="">
+</div>

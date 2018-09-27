@@ -1,9 +1,9 @@
-<h2>Create new Penguin</h2>
+<h2>Tạo thông tin mặt hàng muốn bán</h2>
 <form (ngSubmit)="createPenguin()" #createProForm="ngForm">
-  Penguin name:<br>
+  Tên mặt hàng:<br>
   <input type="text" [(ngModel)]="penguinObject.name" #name="ngModel" name="name">
   <br>
-  Description:<br>
+  Miêu tả:<br>
   <input type="text" [(ngModel)]="penguinObject.description" #description="ngModel" name="description">
   <br><br>
   <button type="submit" class="primary">

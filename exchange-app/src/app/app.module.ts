@@ -17,6 +17,7 @@ import { HomeService } from './home/home.service';
 import { AccountService } from './account/account.service';
 import { ComposerRestService } from './service/composer-rest-service.service';
 import { SellService } from './sell/sell.service';
+import { HistoryComponent } from './history/history.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SellService } from './sell/sell.service';
     DaoComponent,
     LoginComponent,
     SellComponent,
-    BalanceComponent
+    BalanceComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,

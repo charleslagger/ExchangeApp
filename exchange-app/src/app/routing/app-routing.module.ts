@@ -7,12 +7,13 @@ import { DaoComponent } from '../dao/dao.component';
 import { CartComponent } from '../cart/cart.component';
 import { SellComponent } from '../sell/sell.component';
 import { BalanceComponent } from '../balance/balance.component';
+import { HistoryComponent } from '../history/history.component';
 
 const routes: Routes = [
   { path: '?loggedIn=true', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'account', component: AccountComponent },
-  { path: 'message', component: MessageComponent },
+  { path: 'history', component: HistoryComponent },
   { path: 'dao', component: DaoComponent },
   { path: 'cart', component: CartComponent },
   { path: 'sell', component: SellComponent },
