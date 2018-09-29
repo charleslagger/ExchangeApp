@@ -1,0 +1,16 @@
+/**
+ * New query file
+ */
+query availableProducts{
+  description: "Select all products that are owned by the whole saler"
+  statement:
+      SELECT uet.khoenguyen.exchange.Product
+          WHERE (owner=='uet.khoenguyen.exchange.Collector#WHOLESALER')
+}
+
+query myProducts{
+  description: "Select all products that are owned by me"
+  statement:
+      SELECT uet.khoenguyen.exchange.Product
+          WHERE (owner!='uet.khoenguyen.exchange.Collector#WHOLESALER')
+}
