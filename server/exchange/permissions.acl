@@ -17,10 +17,10 @@
  */
 rule Wholesaler {
   description: "Allow collectors to see the assets that are for sale"
-  participant: "uet.khoenguyen.exchange.Collector"
+  participant(t): "uet.khoenguyen.exchange.Collector"
   operation: READ,UPDATE
   resource(v): "uet.khoenguyen.exchange.Product"
-  condition: (v.owner.getIdentifier() == 'WHOLESALER' )
+  condition: (v.owner.getIdentifier() != t.getIdentifier() )
   action: ALLOW
 }
 
@@ -48,6 +48,24 @@ rule MakeTrades_1 {
   resource: "uet.khoenguyen.exchange.Trade"
   action: ALLOW
 }
+
+rule makeListProToCart {
+  description: "Allow collectors to add product sale to cart"
+  participant: "uet.khoenguyen.exchange.Collector"
+  operation: READ, UPDATE
+  resource: "uet.khoenguyen.exchange.Product"
+  action: ALLOW
+}
+
+rule increaseBalance {
+  description: "Allow collectors to add money to their's balance"
+  participant(t): "uet.khoenguyen.exchange.Collector"
+  operation: READ, UPDATE
+  resource(v): "uet.khoenguyen.exchange.Collector"
+  condition: (v.getIdentifier() == t.getIdentifier())
+  action: ALLOW
+}
+
 
 rule CollectorsSeeThemselves {
   description: "Collectors can see their own participant"

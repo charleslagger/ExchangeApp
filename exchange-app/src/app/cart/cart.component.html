@@ -1,3 +1,26 @@
-<p>
-  cart works!
-</p>
+<table>
+  <tr *ngFor="let product of listProducts | async">
+    <td>{{product.productId}}</td>
+    <td>{{product.productType}}</td>
+    <td>{{product.pricePerUnit}}</td>
+    <td>{{product.amount}}</td>
+    <td>{{product.imageBase64Encode}}</td>
+    <td>{{product.description}}</td>
+    <td>{{product.owner}}</td>
+    <td><img height="50px" width="50px"></td>
+    <td>
+      <button type="button" class="primary" (click)="addProToCart(penguin.name)">
+        <div *ngIf="!buyInProgress || buyInProgress && penguin.name!==boughtPenguin">
+          <span>Thanh toán</span>
+        </div>
+        <!-- <div *ngIf="buyInProgress && penguin.name===boughtPenguin" class="ibm-spinner-indeterminate small loop">
+          <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+              <circle class="circle-path" cx="50" cy="50" r="20" />
+            </svg>
+          </div>
+        </div> -->
+      </button>
+    </td>
+  </tr>
+</table>

@@ -8,14 +8,14 @@ export class AccountService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getMyPenguins() {
-    return this.httpClient.get('http://localhost:3001/api/queries/myPenguins', {withCredentials: true}).toPromise();
+  getMyProducts() {
+    return this.httpClient.get('http://localhost:3001/api/queries/myProducts', {withCredentials: true}).toPromise();
   }
 
   getCurrentUser() {
     return this.httpClient.get('http://localhost:3000/api/system/ping', {withCredentials: true}).toPromise()
       .then((data) => {
-        return this.httpClient.get('http://localhost:3000/api/org.collectable.penguin.Collector/' +
+        return this.httpClient.get('http://localhost:3000/api/uet.khoenguyen.exchange.Collector/' +
           (data['participant'].split('#'))[1], {withCredentials: true}).toPromise()
           .then( (result) => {
             return result;

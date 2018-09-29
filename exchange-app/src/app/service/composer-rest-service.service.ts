@@ -13,19 +13,29 @@ export class ComposerRestService {
   }
 
   signUp(data) {
-    const collector = {
-      $class: 'org.collectable.penguin.Collector',
-      collectorId: data.id,
-      firstName: data.firstName,
-      lastName: data.surname
+    const addressData = {
+      $class: 'uet.khoenguyen.exchange.Address',
+      city : data.city,
+      country: data.country,
+      street: data.street
     };
 
-    return this.httpClient.post('http://localhost:3001/api/org.collectable.penguin.Collector',
+    const collector = {
+      $class: 'uet.khoenguyen.exchange.Collector',
+      email: data.email,
+      accountBalance: 0,
+      firstName: data.firstName,
+      lastName: data.surname,
+      phoneNumber: data.phoneNum,
+      address : addressData
+    };
+
+    return this.httpClient.post('http://localhost:3001/api/uet.khoenguyen.exchange.Collector',
         collector, {responseType: 'blob'}).toPromise()
       .then(() => {
         const identity = {
-          participant: 'org.collectable.penguin.Collector#' + data.id,
-          userID: data.id,
+          participant: 'uet.khoenguyen.exchange.Collector#' + data.email,
+          userID: data.email,
           options: {}
         };
 

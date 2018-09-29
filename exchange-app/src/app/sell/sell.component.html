@@ -1,12 +1,24 @@
 <h2>Tạo thông tin mặt hàng muốn bán</h2>
-<form (ngSubmit)="createPenguin()" #createProForm="ngForm">
+<form (ngSubmit)="createProduct()" #createProForm="ngForm">
   Tên mặt hàng:<br>
-  <input type="text" [(ngModel)]="penguinObject.name" #name="ngModel" name="name">
+  <input type="text" [(ngModel)]="productObject.name" #name="ngModel" name="name">
+  <br>
+  Loại mặt hàng:<br>
+  <input type="text" [(ngModel)]="productObject.productType" #name="ngModel" name="productType">
+  <br>
+  Giá trên đơn vị sản phẩm:<br>
+  <input type="text" [(ngModel)]="productObject.pricePerUnit" #name="ngModel" name="pricePerUnit">
+  <br>
+  Số lượng:<br>
+  <input type="text" [(ngModel)]="productObject.amount" #name="ngModel" name="amount">
+  <br>
+  Ảnh:<br>
+  <input type="text" [(ngModel)]="productObject.imageBase64Encode" #name="ngModel" name="imageBase64Encode">
   <br>
   Miêu tả:<br>
-  <input type="text" [(ngModel)]="penguinObject.description" #description="ngModel" name="description">
-  <br><br>
+  <input type="text" [(ngModel)]="productObject.description" #name="ngModel" name="description">
+  <br>
   <button type="submit" class="primary">
-    <span>Sell</span>
+    <span>Đăng mặt hàng</span>
   </button>
 </form>

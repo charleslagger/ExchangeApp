@@ -12,10 +12,6 @@
  * limitations under the License.
  */
 
-/**
- * Write your model definitions here
- */
-
 namespace uet.khoenguyen.exchange
 
 enum ProductType{
@@ -25,14 +21,21 @@ enum ProductType{
   o CLOTHES
 }
 
+enum ProductStatus{
+  o SELLING
+  o BOUGHT
+}
+
 asset Product identified by productId {
   o String productId
+  o String productName
   o ProductType productType
   o Long pricePerUnit
   o Long amount
   o String imageBase64Encode optional
   o String description optional
-  o String cartStatus optional // to define product in cart
+  o String cartStatus // to define product in cart
+  o ProductStatus productStatus 
   --> Collector owner
 }
 
@@ -52,6 +55,7 @@ abstract participant Bussiness identified by email {
   o String lastName
   o String phoneNumber
   o Address address
+  o String coverPhoto
 }
 
 participant Collector extends Bussiness {
@@ -64,7 +68,7 @@ transaction Trade {
   --> Collector newOwner
 }
 
-transaction ListProInCart {
+transaction MoveProToCart {
   --> Product product
   --> Collector newOwnerTemp
 }

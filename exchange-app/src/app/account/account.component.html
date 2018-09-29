@@ -1,14 +1,20 @@
 <h2>Thông tin tài khoản</h2>
-<p>Id: {{ (currentUser | async)?.collectorId }}</p>
-<p>First name: {{ (currentUser | async)?.firstName}}</p>
-<p>Surname: {{ (currentUser | async)?.lastName}}</p>
+<p>Id: {{ (currentUser | async)?.email }}</p>
+<p>Tên: {{ (currentUser | async)?.firstName}}</p>
+<p>Tên đệm: {{ (currentUser | async)?.lastName}}</p>
+<p>Số dư tài khoản: {{ (currentUser | async)?.accountBalance}}</p>
+<p>Số điện thoại: {{ (currentUser | async)?.phoneNumber}}</p>
+<p>Địa chỉ: {{ (currentUser | async)?.address.street}} , {{ (currentUser | async)?.address.city}} , {{ (currentUser | async)?.address.country}}</p>
 
 
 <h2>Mặt hàng sở hữu</h2>
 <table>
-  <tr *ngFor="let penguin of myPenguins | async">
-    <td>{{penguin.name}}</td>
-    <td>{{penguin.description}}</td>
-    <td><img src="assets/images/penguins/{{penguin.name}}.JPG" height="50px" width="50px"></td>
+  <tr *ngFor="let product of myProducts | async">
+    <td>{{product.productId}}</td>
+    <td>{{product.productType}}</td>
+    <td>{{product.pricePerUnit}}</td>
+    <td>{{product.amount}}</td>
+    <td>{{product.description}}</td>
+    <td><img height="50px" width="50px" src="{{product.imageBase64Encode}}" alt=""></td>
   </tr>
 </table>

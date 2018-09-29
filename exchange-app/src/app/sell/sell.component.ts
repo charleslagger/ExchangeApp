@@ -11,23 +11,31 @@ export class SellComponent implements OnInit {
 
   constructor( private sellService: SellService,
               private accountService: AccountService) { }
-  private createInProgress = false;
-  @ViewChild('createProForm') createPenForm;
-  private penguinObject = {
+  // private createInProgress = false;
+  @ViewChild('createProForm') createProForm;
+  private productObject = {
     name: '',
-    description : ''
+    productType: '',
+    pricePerUnit: '',
+    amount: '',
+    imageBase64Encode: '',
+    description : '',
+    currentUser: ''
   };
 
   ngOnInit() {
-    this.createPenguin();
+    // this.createProduct();
   }
 
-  createPenguin() {
-    this.createInProgress = true;
+  createProduct() {
+    // this.createInProgress = true;
     return this.accountService.getCurrentUserId().then((currentUserId) => {
-      return this.sellService.createPenguin(this.penguinObject.name, this.penguinObject.description, currentUserId)
+      return this.sellService.createProduct(this.productObject.name,
+        this.productObject.productType, this.productObject.pricePerUnit,
+        this.productObject.amount, this.productObject.imageBase64Encode,
+        this.productObject.description, ' ', currentUserId)
       .then(() => {
-        this.createInProgress = false;
+        // this.createInProgress = false;
       });
     });
   }

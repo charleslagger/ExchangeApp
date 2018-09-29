@@ -18,12 +18,12 @@
           <label>ID</label>
         </td>
         <td>
-          <input type="text" [(ngModel)]="signUp.id" #id="ngModel" name="id">
+          <input type="text" [(ngModel)]="signUp.email" #id="ngModel" name="email">
         </td>
       </tr>
       <tr>
         <td>
-          <label>First Name</label>
+          <label>First name</label>
         </td>
         <td>
           <input type="text" [(ngModel)]="signUp.firstName" #firstName="ngModel" name="firstName">
@@ -35,6 +35,38 @@
         </td>
         <td>
           <input type="text" [(ngModel)]="signUp.surname" #surname="ngModel" name="surname">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>Phone number</label>
+        </td>
+        <td>
+          <input type="text" [(ngModel)]="signUp.phoneNum" #surname="ngModel" name="phoneNum">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>Address</label>
+        </td>
+        <td>
+          <input type="text" [(ngModel)]="signUp.country" #surname="ngModel" name="country">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>Address</label>
+        </td>
+        <td>
+          <input type="text" [(ngModel)]="signUp.city" #surname="ngModel" name="city">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>Address</label>
+        </td>
+        <td>
+          <input type="text" [(ngModel)]="signUp.street" #surname="ngModel" name="street">
         </td>
       </tr>
     </table>

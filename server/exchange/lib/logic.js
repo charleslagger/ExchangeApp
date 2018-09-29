@@ -25,36 +25,38 @@ var NS = 'uet.khoenguyen.exchange';
  */
 function tradeProduct(tx) {
 
-    // set the new owner of the commodity
-    tx.oldOwner = tx.product.owner;
-    tx.product.owner = tx.newOwner;
-    
-    var totalPrice = tx.product.amount * tx.product.pricePerUnit;
-    if(tx.newOwner.accountBalance >= totalPrice){
-      tx.newOwner.accountBalance -= totalPrice;
-      return getAssetRegistry(NS + '.Product')
-          .then(function (assetRegistry) {
-              // persist the state of the commodity
-              assetRegistry.update(tx.product);
-              return getParticipantRegistry(NS + '.Collector')
-                .then(function (paricipantRegistry) {
-                  return paricipantRegistry.update(tx.newOwner);
-                })
-          });
-    }
+  // set the new owner of the commodity
+  tx.oldOwner = tx.product.owner;
+  tx.product.owner = tx.newOwner;
+  tx.product.productStatus = 'BOUGHT';
+  tx.product.cartStatus = 'CART_STATUS';
+
+  var totalPrice = tx.product.amount * tx.product.pricePerUnit;
+  if (tx.newOwner.accountBalance >= totalPrice) {
+    tx.newOwner.accountBalance -= totalPrice;
+    return getAssetRegistry(NS + '.Product')
+      .then(function (assetRegistry) {
+        // persist the state of the commodity
+        assetRegistry.update(tx.product);
+        return getParticipantRegistry(NS + '.Collector')
+          .then(function (paricipantRegistry) {
+            return paricipantRegistry.update(tx.newOwner);
+          })
+      });
+  }
 }
 
 /**
  * Get all product buyer add to cart
- * @param {uet.khoenguyen.exchange.ListProInCart} tx
+ * @param {uet.khoenguyen.exchange.MoveProToCart} tx
  * @transaction
  */
-function getListProInCart(tx){
+function moveProToCart(tx) {
   tx.product.cartStatus = (new Date()).getTime().toString() + tx.newOwnerTemp;
   return getAssetRegistry(NS + '.Product')
-      .then(function (assetRegistry) {
-        return assetRegistry.update(tx.product);
-      });
+    .then(function (assetRegistry) {
+      return assetRegistry.update(tx.product);
+    });
 }
 
 /**
@@ -62,13 +64,13 @@ function getListProInCart(tx){
  * @param {uet.khoenguyen.exchange.IncreaseBalance} tx
  * @transaction
  */
-function increaseBalance(tx){
+function increaseBalance(tx) {
   // tx.owner.accountBalance = parseFloat(tx.owner.accountBalance) + parseFloat(tx.amountMoney);
   tx.owner.accountBalance += tx.amountMoney;
   return getParticipantRegistry(NS + '.Collector')
-      .then(function (paricipant) {
-        return paricipant.update(tx.owner);
-      });
+    .then(function (paricipant) {
+      return paricipant.update(tx.owner);
+    });
 }
 
 /**
@@ -76,53 +78,62 @@ function increaseBalance(tx){
  * @param {uet.khoenguyen.exchange._demoSetup} remove - the remove to be processed
  * @transaction
  */
-function setup(){
-    var factory = getFactory();
-    var collectors = [
-      factory.newResource(NS,'Collector','JERRY'),
-      factory.newResource(NS,'Collector','TEP'),
-      factory.newResource(NS,'Collector','TOM'),
-      factory.newResource(NS,'Collector','WHOLESALER')
-    ];    
-                          
-    var products = [
-      factory.newResource(NS,'Product','Nova 3i'),
-      factory.newResource(NS,'Product','Nokia X6'),
-      factory.newResource(NS,'Product','SamSung S9'),
-      factory.newResource(NS,'Product','BPhone'),
-      factory.newResource(NS,'Product','Iphone XS MAX')
-      ];
- 
-    /* add the resource and the traders */
-    return getParticipantRegistry(NS+'.Collector')
-  .then(function(collectorRegistry){
-            collectors.forEach(function(collector) {
-          collector.accountBalance = 100000000;
-          collector.firstName = collector.getIdentifier().toLowerCase();
-          collector.lastName = 'Collector';
-          collector.phoneNumber = '0988888888';
+function setup() {
+  var factory = getFactory();
+  var collectors = [
+    factory.newResource(NS, 'Collector', 'JERRY'),
+    factory.newResource(NS, 'Collector', 'TEP'),
+    factory.newResource(NS, 'Collector', 'TOM'),
+    factory.newResource(NS, 'Collector', 'WHOLESALER')
+  ];
 
-          const importerAddress = factory.newConcept(NS, 'Address');
-          importerAddress.city = 'Ha Noi';
-          importerAddress.country = "Viet Nam";
-          importerAddress.street = "Cau Giay";
+  var products = [
+    factory.newResource(NS, 'Product', 'Nova 3i'),
+    factory.newResource(NS, 'Product', 'Nokia X6'),
+    factory.newResource(NS, 'Product', 'SamSung S9'),
+    factory.newResource(NS, 'Product', 'BPhone'),
+    factory.newResource(NS, 'Product', 'Iphone XS MAX')
+  ];
 
-          collector.address = importerAddress;
+  /* add the resource and the traders */
+  return getParticipantRegistry(NS + '.Collector')
+    .then(function (collectorRegistry) {
+      collectors.forEach(function (collector) {
+        collector.accountBalance = 100000000;
+        collector.firstName = collector.getIdentifier().toLowerCase();
+        collector.lastName = 'Collector';
+        collector.phoneNumber = '0988888888';
+
+        const importerAddress = factory.newConcept(NS, 'Address');
+        importerAddress.city = 'Ha Noi';
+        importerAddress.country = "Viet Nam";
+        importerAddress.street = "Cau Giay";
+
+        collector.address = importerAddress;
+        collector.coverPhoto = ' ';
       });
       return collectorRegistry.addAll(collectors);
     })
-  .then(function(){
-    	return getAssetRegistry(NS+'.Product');
+    .then(function () {
+      return getAssetRegistry(NS + '.Product');
     })
-  .then(function(assetRegistry){
-      products.forEach(function(product) {
-        product.productType= 'SMART_PHONE';
-        product.pricePerUnit= 6000000;
+    .then(function (assetRegistry) {
+      products.forEach(function (product) {
+        product.productType = 'SMART_PHONE';
+        product.productName = 'SamSung S' + getRndInteger(5, 10);
+        product.pricePerUnit = 6000000;
         product.amount = 2;
         product.imageBase64Encode = "Image encode";
         product.description = 'Smart phone: ' + product.getIdentifier();
-        product.owner = factory.newRelationship(NS,'Collector','WHOLESALER');
+        product.cartStatus = 'CART_STATUS';
+        product.productStatus = 'SELLING';
+        product.owner = factory.newRelationship(NS, 'Collector', 'WHOLESALER');
       })
       return assetRegistry.addAll(products);
     });
+}
+
+// returns a random number between min (included) and max (excluded)
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
 }

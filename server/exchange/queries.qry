@@ -2,15 +2,31 @@
  * New query file
  */
 query availableProducts{
-  description: "Select all products that are owned by the whole saler"
+  description: "Select all products for sale"
   statement:
       SELECT uet.khoenguyen.exchange.Product
-          WHERE (owner=='uet.khoenguyen.exchange.Collector#WHOLESALER')
+          WHERE ((owner!=_$currentUserId) AND (productStatus == "SELLING"))
 }
 
-query myProducts{
-  description: "Select all products that are owned by me"
+query myProductSelling{
+  description: "Select all products that are owned by me with status is selling"
   statement:
       SELECT uet.khoenguyen.exchange.Product
-          WHERE (owner!='uet.khoenguyen.exchange.Collector#WHOLESALER')
+          WHERE ((owner==_$ownerId) AND (productStatus == "SELLING"))
+          ORDER BY productName
+}
+
+query myProductBought{
+  description: "Select all products that are owned by me with status bough by me"
+  statement:
+      SELECT uet.khoenguyen.exchange.Product
+          WHERE ((owner==_$ownerId) AND (productStatus == "BOUGHT"))
+          ORDER BY productName
+}
+
+query listProductsInMyCart{
+  description: "Get all products that it's in my cart"
+  statement:
+    SELECT uet.khoenguyen.exchange.Product
+          WHERE ((cartStatus CONTAINS _$ownerId) AND (productStatus == _$productStatus))
 }

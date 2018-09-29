@@ -24,9 +24,13 @@ export class AppComponent implements OnInit {
   private signUpInProgress = false;
   @ViewChild('signupForm') signupForm;
   private signUp = {
-    id: '',
+    email: '',
     firstName: '',
     surname: '',
+    phoneNum: '',
+    country: '',
+    city: '',
+    street: ''
   };
 
   ngOnInit() {

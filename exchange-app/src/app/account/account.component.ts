@@ -12,14 +12,14 @@ export class AccountComponent implements OnInit {
 
   private currentUser;
 
-  private myPenguins;
+  private myProducts;
   ngOnInit() {
     this.currentUser = this.getCurrentUser();
-    this.myPenguins = this.getMyPenguins();
+    this.myProducts = this.getMyProducts();
   }
 
-  getMyPenguins() {
-    return this.accountService.getMyPenguins();
+  getMyProducts() {
+    return this.accountService.getMyProducts();
   }
 
   getCurrentUser() {
