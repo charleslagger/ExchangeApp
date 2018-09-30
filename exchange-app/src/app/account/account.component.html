@@ -5,12 +5,23 @@
 <p>Số dư tài khoản: {{ (currentUser | async)?.accountBalance}}</p>
 <p>Số điện thoại: {{ (currentUser | async)?.phoneNumber}}</p>
 <p>Địa chỉ: {{ (currentUser | async)?.address.street}} , {{ (currentUser | async)?.address.city}} , {{ (currentUser | async)?.address.country}}</p>
-
-
-<h2>Mặt hàng sở hữu</h2>
+<td><img height="50px" width="50px" src="{{ (currentUser | async)?.coverPhoto}}" alt=""></td>
+<h2>Mặt hàng đã mua</h2>
 <table>
-  <tr *ngFor="let product of myProducts | async">
-    <td>{{product.productId}}</td>
+  <tr *ngFor="let product of listProductBought | async">
+    <td>{{product.productName}}</td>
+    <td>{{product.productType}}</td>
+    <td>{{product.pricePerUnit}}</td>
+    <td>{{product.amount}}</td>
+    <td>{{product.description}}</td>
+    <td><img height="50px" width="50px" src="{{product.imageBase64Encode}}" alt=""></td>
+  </tr>
+</table>
+
+<h2>Mặt hàng đang rao bán</h2>
+<table>
+  <tr *ngFor="let product of listProductSell | async">
+    <td>{{product.productName}}</td>
     <td>{{product.productType}}</td>
     <td>{{product.pricePerUnit}}</td>
     <td>{{product.amount}}</td>

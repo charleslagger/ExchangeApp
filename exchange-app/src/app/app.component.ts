@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ComposerRestService } from './service/composer-rest-service.service';
 import { HomeService } from './home/home.service';
+import { AccountService } from './account/account.service';
 
 @Component({
   selector: 'app-root',
@@ -14,11 +15,13 @@ export class AppComponent implements OnInit {
   private authenticated = false;
   private loggedIn = false;
   private currentUser;
+  private imageEncode;
 
   constructor(private route: ActivatedRoute,
     private router: Router,
     private restService: ComposerRestService,
-    private homeService: HomeService) {
+    private homeService: HomeService,
+    private accountService: AccountService) {
   }
 
   private signUpInProgress = false;
@@ -49,27 +52,38 @@ export class AppComponent implements OnInit {
       });
   }
 
+  changeListener($event): void {
+    this.readFileContent($event.target);
+  }
+
+  // return file to base 64 encode string
+  readFileContent(inputValue: any): void {
+    const file: File = inputValue.files[0];
+    const myReader: FileReader = new FileReader();
+    myReader.onloadend = (e) => {
+      this.imageEncode = myReader.result;
+    };
+
+    myReader.readAsDataURL(file);
+  }
+
   checkWallet() {
     return this.restService.checkWallet()
       .then((results) => {
         console.log('Result of check wallet: ' + JSON.stringify(results));
         if (results['length'] > 0) {
           this.loggedIn = true;
-          return this.getCurrentUser()
-            .then(() => {
-              // this.congaName = this.CONGAS[this.getRandomIntInclusive(0, this.CONGAS.length - 1)];
-              return this.homeService.getAvailablePenguins();
+          return this.getCurrentUserId()
+            .then((currentUserId) => {
+              return this.homeService.getAvailableProducts(currentUserId);
             });
-            // .then(() => {
-            //   return this.getMyPenguins();
-            // });
         }
       });
   }
 
   onSignUp() {
     this.signUpInProgress = true;
-    return this.restService.signUp(this.signUp)
+    return this.restService.signUp(this.signUp, this.imageEncode)
       .then(() => {
         return this.getCurrentUser();
       })
@@ -81,7 +95,14 @@ export class AppComponent implements OnInit {
   }
 
   getCurrentUser() {
-    return this.restService.getCurrentUser()
+    return this.accountService.getCurrentUser()
+      .then((currentUser) => {
+        this.currentUser = currentUser;
+      });
+  }
+
+  getCurrentUserId() {
+    return this.accountService.getCurrentUserId()
       .then((currentUser) => {
         this.currentUser = currentUser;
       });

@@ -14,7 +14,7 @@ export class BalanceService {
       amountMoney: amountMoney,
       owner: currentUser
     };
-    return this.httpClient.post('http://localhost:3001/api/uet.khoenguyen.exchange.IncreaseBalance',
+    return this.httpClient.post('http://localhost:3001/api/IncreaseBalance',
       transaction, {withCredentials: true}).toPromise();
   }
 }

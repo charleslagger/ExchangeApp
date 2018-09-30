@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -8,19 +8,35 @@ export class HomeService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAvailablePenguins() {
-    return this.httpClient.get('http://localhost:3000/api/queries/availablePenguins', {withCredentials: true}).toPromise();
+  getAvailableProducts(currentUserId) {
+    console.log('==>>currentUserId: ' + currentUserId);
+    const httpParams = new HttpParams()
+          .set('currentUserId', currentUserId);
+    return this.httpClient.get('http://localhost:3000/api/queries/availableProducts',
+      {params: httpParams, withCredentials: true}).toPromise();
   }
 
-  buyPenguin(penguinId, currentUser) {
-    console.log('Buy product');
+  addToCart(productId, buyerId) {
     const transactionDetails = {
-      $class: 'org.collectable.penguin.Trade',
-      penguin: 'resource:org.collectable.penguin.Penguin#' + penguinId,
-      newOwner: currentUser
+      $class: 'uet.khoenguyen.exchange.MoveProToCart',
+      product: productId,
+      newOwnerTemp: buyerId
     };
-
-    return this.httpClient.post('http://localhost:3000/api/org.collectable.penguin.Trade',
+    return this.httpClient.post('http://localhost:3001/api/MoveProToCart',
       transactionDetails, {withCredentials: true}).toPromise();
   }
+
+  // buyProduct(productId, oldOwner, currentUser) {
+  //   console.log('Buy product');
+  //   const transactionDetails = {
+  //     $class: 'uet.khoenguyen.exchange.Trade',
+  //     oldOwner: oldOwner,
+  //     product: productId,
+  //     newOwner: (currentUser.split('#'))[1]
+  //     // newOwner: currentUser
+  //   };
+
+  //   return this.httpClient.post('http://localhost:3000/api/Trade',
+  //     transactionDetails, {withCredentials: true}).toPromise();
+  // }
 }

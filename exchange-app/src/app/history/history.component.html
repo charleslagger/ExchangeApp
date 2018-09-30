@@ -1,3 +1,9 @@
-<p>
-  history works!
-</p>
+<table>
+  <tr *ngFor="let transaction of totalTransactions | async">
+    <td>Tên sản phẩm: {{transaction.productName}}</td>
+    <td><img height="50px" width="50px" src="{{transaction.image}}" alt=""></td>
+    <td>Người bán: {{transaction.oldOwnerName}}</td>
+    <td>Người mua: {{transaction.newOwnerName}}</td>
+    <td>{{transaction.timestamp}}</td>
+  </tr>
+</table>

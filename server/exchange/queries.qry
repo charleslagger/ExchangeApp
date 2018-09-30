@@ -28,5 +28,5 @@ query listProductsInMyCart{
   description: "Get all products that it's in my cart"
   statement:
     SELECT uet.khoenguyen.exchange.Product
-          WHERE ((cartStatus CONTAINS _$ownerId) AND (productStatus == _$productStatus))
+          WHERE ((cartStatus == _$ownerId) AND (productStatus == _$productStatus))
 }

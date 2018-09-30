@@ -11,15 +11,30 @@ export class AccountComponent implements OnInit {
   constructor(private accountService: AccountService) { }
 
   private currentUser;
+  private listProductBought;
+  private listProductSell;
 
-  private myProducts;
   ngOnInit() {
     this.currentUser = this.getCurrentUser();
-    this.myProducts = this.getMyProducts();
+    this.listProductBought = this.getListProductBought();
+      // .then( (result) => {
+      //   console.log('==>' + JSON.stringify(result));
+      // });
+    this.listProductSell = this.getListProductSell();
   }
 
-  getMyProducts() {
-    return this.accountService.getMyProducts();
+  getListProductBought() {
+    return this.accountService.getCurrentUserId()
+      .then((currentUserId) => {
+        return this.accountService.getMyProductBought(currentUserId);
+      });
+  }
+
+  getListProductSell() {
+    return this.accountService.getCurrentUserId()
+      .then((currentUserId) => {
+        return this.accountService.getMyProductSell(currentUserId);
+      });
   }
 
   getCurrentUser() {

@@ -8,38 +8,37 @@ import { Subject } from 'rxjs';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  // public updateProgressStatus: Subject<boolean> = new Subject();
-
   constructor(private homeService: HomeService,
               private accountService: AccountService) { }
-  private availablePenguins;
+  private availableProducts;
   private buyInProgress;
-  private boughtPenguin;
+  private boughtProduct;
 
   ngOnInit() {
-    // this.updateProgressStatus = false;
     this.buyInProgress = false;
-    this.availablePenguins = this.getAvailablePenguins();
+    this.availableProducts = this.getAvailableProducts();
   }
 
-  getAvailablePenguins() {
-     return this.homeService.getAvailablePenguins();
-  }
-
-  buyPenguin(penguinId) {
-    this.buyInProgress = true;
-    this.boughtPenguin = penguinId;
+  getAvailableProducts() {
     return this.accountService.getCurrentUserId()
       .then((currentUserId) => {
-        return this.homeService.buyPenguin(penguinId, currentUserId)
+        return this.homeService.getAvailableProducts(currentUserId);
+      });
+  }
+
+  addToCart(productId) {
+    this.buyInProgress = true;
+    this.boughtProduct = productId;
+    return this.accountService.getCurrentUserId()
+      .then((result) => {
+        return this.homeService.addToCart(productId, (result.split('#'))[1])
           .then(() => {
-            return this.getAvailablePenguins();
+            return this.getAvailableProducts();
           })
           .then(() => {
-            this.boughtPenguin = null;
+            this.boughtProduct = null;
             this.buyInProgress = false;
           });
     });
   }
-
 }

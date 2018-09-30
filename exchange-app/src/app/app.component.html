@@ -69,6 +69,14 @@
           <input type="text" [(ngModel)]="signUp.street" #surname="ngModel" name="street">
         </td>
       </tr>
+      <tr>
+        <td>
+          <label>Ảnh đại diện</label>
+        </td>
+        <td>
+          <input type="file" accept="image/*" (change)="changeListener($event)">
+        </td>
+      </tr>
     </table>
     <button type="submit" class="primary">
       <div *ngIf="!signUpInProgress">
@@ -89,7 +97,7 @@
   <nav class="menu">
     <ul>
       <li><a routerLink="/home">Trang chủ</a></li>
-      <li><a routerLink="/dao">Dạo</a></li>
+      <!-- <li><a routerLink="/dao">Dạo</a></li> -->
       <li><a routerLink="/history">Lịch sử giao dịch</a></li>
       <li><a routerLink="/cart">Giỏ hàng</a></li>
       <li><a routerLink="/account">Tài khoản</a></li>

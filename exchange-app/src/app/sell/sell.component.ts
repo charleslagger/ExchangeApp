@@ -11,14 +11,13 @@ export class SellComponent implements OnInit {
 
   constructor( private sellService: SellService,
               private accountService: AccountService) { }
-  // private createInProgress = false;
+  private image;
   @ViewChild('createProForm') createProForm;
   private productObject = {
     name: '',
     productType: '',
     pricePerUnit: '',
     amount: '',
-    imageBase64Encode: '',
     description : '',
     currentUser: ''
   };
@@ -32,11 +31,26 @@ export class SellComponent implements OnInit {
     return this.accountService.getCurrentUserId().then((currentUserId) => {
       return this.sellService.createProduct(this.productObject.name,
         this.productObject.productType, this.productObject.pricePerUnit,
-        this.productObject.amount, this.productObject.imageBase64Encode,
-        this.productObject.description, ' ', currentUserId)
+        this.productObject.amount, this.image,
+        this.productObject.description, 'CART_STATUS', currentUserId)
       .then(() => {
         // this.createInProgress = false;
       });
     });
+  }
+
+  changeListener($event): void {
+    this.readThis($event.target);
+  }
+
+  readThis(inputValue: any): void {
+    const file: File = inputValue.files[0];
+    const myReader: FileReader = new FileReader();
+    myReader.onloadend = (e) => {
+      this.image = myReader.result;
+      // console.log('==>' + this.image);
+    };
+
+    myReader.readAsDataURL(file);
   }
 }

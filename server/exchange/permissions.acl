@@ -16,7 +16,7 @@
  * Access control rules for mynetwork
  */
 rule Wholesaler {
-  description: "Allow collectors to see the assets that are for sale"
+  description: "Allow collectors to see the product that are for sale"
   participant(t): "uet.khoenguyen.exchange.Collector"
   operation: READ,UPDATE
   resource(v): "uet.khoenguyen.exchange.Product"
@@ -25,7 +25,7 @@ rule Wholesaler {
 }
 
 rule CollectorAssets {
-  description: "Allow collectors to see the assets that they own"
+  description: "Allow collectors to see the product that they own"
   participant(t): "uet.khoenguyen.exchange.Collector"
   operation: ALL
   resource(v): "uet.khoenguyen.exchange.Product"
@@ -57,14 +57,14 @@ rule makeListProToCart {
   action: ALLOW
 }
 
-rule increaseBalance {
-  description: "Allow collectors to add money to their's balance"
-  participant(t): "uet.khoenguyen.exchange.Collector"
-  operation: READ, UPDATE
-  resource(v): "uet.khoenguyen.exchange.Collector"
-  condition: (v.getIdentifier() == t.getIdentifier())
-  action: ALLOW
-}
+// rule increaseBalance {
+//   description: "Allow collectors to add money to their's balance"
+//   participant(t): "uet.khoenguyen.exchange.Collector"
+//   operation: CREATE, READ, UPDATE
+//   resource(v): "uet.khoenguyen.exchange.Collector"
+//   condition: (v.getIdentifier() == t.getIdentifier())
+//   action: ALLOW
+// }
 
 
 rule CollectorsSeeThemselves {

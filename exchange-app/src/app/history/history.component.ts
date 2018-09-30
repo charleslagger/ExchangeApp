@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HistoryService } from './history.service';
+import { History } from './model/history';
 
 @Component({
   selector: 'app-history',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./history.component.css']
 })
 export class HistoryComponent implements OnInit {
-
-  constructor() { }
+  private totalTransactions; 
+  constructor(private historyService: HistoryService) { }
 
   ngOnInit() {
+    this.totalTransactions = this.getAllTransactions();
   }
 
+  getAllTransactions() {
+    return this.historyService.getAllTransactions();
+  }
 }

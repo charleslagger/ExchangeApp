@@ -64,8 +64,12 @@ participant Collector extends Bussiness {
 
 transaction Trade {
   --> Collector oldOwner
+  o String oldOwnerName
   --> Product product
+  o String productName
   --> Collector newOwner
+  o String newOwnerName
+  o String image
 }
 
 transaction MoveProToCart {

@@ -12,17 +12,19 @@ export class SellService {
       description, cartStatus, currentUser) {
     const transactions = {
       $class: 'uet.khoenguyen.exchange.Product',
-      productId: name,
+      productId: 'PRO_' + (new Date()).getTime(),
+      productName: name,
       productType: productType,
       pricePerUnit: pricePerUnit,
       amount: amount,
       imageBase64Encode: imageBase64Encode,
       description: description,
       cartStatus: cartStatus,
+      productStatus: 'SELLING',
       owner: currentUser
     };
 
-    return this.httpClient.post('http://localhost:3001/api/uet.khoenguyen.exchange.Product',
+    return this.httpClient.post('http://localhost:3000/api/Product',
       transactions, {withCredentials: true}).toPromise();
   }
 }

@@ -13,7 +13,8 @@
   <input type="text" [(ngModel)]="productObject.amount" #name="ngModel" name="amount">
   <br>
   Ảnh:<br>
-  <input type="text" [(ngModel)]="productObject.imageBase64Encode" #name="ngModel" name="imageBase64Encode">
+    <input type="file" accept="image/*" (change)="changeListener($event)">
+    <img height="100px" width="125px" src="{{image}}" alt="">
   <br>
   Miêu tả:<br>
   <input type="text" [(ngModel)]="productObject.description" #name="ngModel" name="description">

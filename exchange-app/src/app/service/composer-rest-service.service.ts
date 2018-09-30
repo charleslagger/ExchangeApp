@@ -12,7 +12,7 @@ export class ComposerRestService {
     return this.httpClient.get('http://localhost:3000/api/wallet', {withCredentials: true}).toPromise();
   }
 
-  signUp(data) {
+  signUp(data, imageEncode) {
     const addressData = {
       $class: 'uet.khoenguyen.exchange.Address',
       city : data.city,
@@ -27,10 +27,11 @@ export class ComposerRestService {
       firstName: data.firstName,
       lastName: data.surname,
       phoneNumber: data.phoneNum,
-      address : addressData
+      address : addressData,
+      coverPhoto: imageEncode
     };
 
-    return this.httpClient.post('http://localhost:3001/api/uet.khoenguyen.exchange.Collector',
+    return this.httpClient.post('http://localhost:3001/api/Collector',
         collector, {responseType: 'blob'}).toPromise()
       .then(() => {
         const identity = {
@@ -54,13 +55,6 @@ export class ComposerRestService {
           withCredentials: true,
           headers
         }).toPromise();
-      });
-  }
-
-  getCurrentUser() {
-    return this.httpClient.get('http://localhost:3000/api/system/ping', {withCredentials: true}).toPromise()
-      .then((data) => {
-        return data['participant'];
       });
   }
 }
