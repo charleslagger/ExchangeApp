@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'account', component: AccountComponent },
   { path: 'history', component: HistoryComponent },
-  // { path: 'dao', component: DaoComponent },
+  { path: 'dao', component: DaoComponent },
   { path: 'cart', component: CartComponent },
   { path: 'sell', component: SellComponent },
   { path: 'balance', component: BalanceComponent },

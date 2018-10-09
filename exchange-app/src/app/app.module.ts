@@ -19,6 +19,10 @@ import { ComposerRestService } from './service/composer-rest-service.service';
 import { SellService } from './sell/sell.service';
 import { HistoryComponent } from './history/history.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatCardModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatGridListModule } from '@angular/material';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +40,16 @@ import { HistoryComponent } from './history/history.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    FlexLayoutModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatIconModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatGridListModule
   ],
   providers: [
     HomeService,

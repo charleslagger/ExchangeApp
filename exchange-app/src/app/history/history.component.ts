@@ -8,7 +8,7 @@ import { History } from './model/history';
   styleUrls: ['./history.component.css']
 })
 export class HistoryComponent implements OnInit {
-  private totalTransactions; 
+  private totalTransactions;
   constructor(private historyService: HistoryService) { }
 
   ngOnInit() {
