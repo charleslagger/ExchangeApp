@@ -1,15 +1,21 @@
-<table>
-  <tr *ngFor="let product of listProducts | async">
-    <td>{{product.productName}}</td>
-    <td>{{product.productType}}</td>
-    <td>{{product.pricePerUnit}}</td>
-    <td>{{product.amount}}</td>
-    <td>{{product.description}}</td>
-    <td><img height="50px" width="50px" src="{{product.imageBase64Encode}}" alt=""></td>
-    <td>
-      <button type="button" class="primary" (click)="buyProduct(product.productId, product.owner)">
-        <span>Thanh toán</span>
-      </button>
-    </td>
-  </tr>
-</table>
+<mat-grid-list class = "cart-body" cols="4" rowHeight="1:1.4" gutterSize="10px"  >
+  <mat-grid-tile
+      *ngFor="let product of listProducts | async">
+      <mat-card>
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{product.productName}}</mat-card-title>
+          <mat-card-subtitle>{{product.productType}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="{{product.imageBase64Encode}}" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          Mô tả: {{product.description}} <br>
+          Giá: {{product.pricePerUnit}} <br>
+          Số lượng: {{product.amount}}
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button (click)="buyProduct(product.productId, product.owner)">Thanh toán</button>
+        </mat-card-actions>
+      </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

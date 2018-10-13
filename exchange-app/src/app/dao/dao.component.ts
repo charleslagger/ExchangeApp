@@ -8,14 +8,14 @@ import { DaoService } from './dao.service';
 })
 export class DaoComponent implements OnInit {
   tiles = [
-    {text: 'Shiba', cols: 1, rows: 2, color: 'lightgreen'},
+    { text: 'Shiba', cols: 1, rows: 2, color: 'lightgreen' },
 
-    {text: 'Doggy', cols: 1, rows: 2, color: 'lightpink'},
-    {text: 'Dog', cols: 1, rows: 2, color: '#DDBDF1'},
-    {text: 'Doggo', cols: 1, rows: 2, color: '#DDBDF1'},
-    {text: 'Doge', cols: 1, rows: 2, color: '#DDBDF1'},
-    {text: 'Some Dog', cols: 1, rows: 2, color: '#DDBDF1'},
-    {text: 'Text', cols: 1, rows: 2, color: '#DDBDF1'},
+    { text: 'Doggy', cols: 1, rows: 2, color: 'lightpink' },
+    { text: 'Dog', cols: 1, rows: 2, color: '#DDBDF1' },
+    { text: 'Doggo', cols: 1, rows: 2, color: '#DDBDF1' },
+    { text: 'Doge', cols: 1, rows: 2, color: '#DDBDF1' },
+    { text: 'Some Dog', cols: 1, rows: 2, color: '#DDBDF1' },
+    { text: 'Text', cols: 1, rows: 2, color: '#DDBDF1' },
   ];
 
   image;
@@ -37,6 +37,10 @@ export class DaoComponent implements OnInit {
     };
 
     myReader.readAsDataURL(file);
+  }
+
+  clickButtonTest() {
+    console.log('==>>Click button test');
   }
 
 }

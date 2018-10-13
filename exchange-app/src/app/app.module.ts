@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
@@ -21,7 +21,18 @@ import { HistoryComponent } from './history/history.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatCardModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatGridListModule } from '@angular/material';
+import {
+  MatCardModule,
+  MatIconModule,
+  MatToolbarModule,
+  MatButtonModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatGridListModule,
+  MatDialogModule,
+  MatNativeDateModule,
+  MatSelectModule
+} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -36,6 +47,7 @@ import { MatCardModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFor
     BalanceComponent,
     HistoryComponent
   ],
+  entryComponents: [LoginComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -49,7 +61,11 @@ import { MatCardModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFor
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatGridListModule
+    MatGridListModule,
+    MatDialogModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
+    MatSelectModule
   ],
   providers: [
     HomeService,
@@ -59,4 +75,5 @@ import { MatCardModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFor
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

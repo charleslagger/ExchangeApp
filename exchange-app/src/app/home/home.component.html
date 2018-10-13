@@ -1,24 +1,21 @@
-<table>
-  <tr *ngFor="let product of availableProducts | async">
-    <td>{{product.productName}}</td>
-    <td>{{product.productType}}</td>
-    <td>{{product.pricePerUnit}}</td>
-    <td>{{product.amount}}</td>
-    <td>{{product.description}}</td>
-    <td><img height="50px" width="50px" src="{{product.imageBase64Encode}}" alt=""></td>
-    <td>
-      <button type="button" class="primary" (click)="addToCart(product.productId)">
-        <div *ngIf="!buyInProgress || buyInProgress && product.productName!==boughtProduct">
-          <span>Thêm vào giỏ hàng</span>
-        </div>
-        <div *ngIf="buyInProgress && product.productName===boughtProduct" class="ibm-spinner-indeterminate small loop">
-          <div class="loader">
-            <svg class="circular" viewBox="25 25 50 50">
-              <circle class="circle-path" cx="50" cy="50" r="20" />
-            </svg>
-          </div>
-        </div>
-      </button>
-    </td>
-  </tr>
-</table>
+<mat-grid-list class = "home-body" cols="4" rowHeight="1:1.4" gutterSize="10px"  >
+  <mat-grid-tile
+      *ngFor="let product of availableProducts | async">
+      <mat-card>
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{product.productName}}</mat-card-title>
+          <mat-card-subtitle>{{product.productType}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="{{product.imageBase64Encode}}" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          Mô tả: {{product.description}} <br>
+          Giá: {{product.pricePerUnit}} <br>
+          Số lượng: {{product.amount}}
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button (click)="addToCart(product.productId)">Thêm vào giỏ hàng</button>
+        </mat-card-actions>
+      </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

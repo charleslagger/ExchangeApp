@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ComposerRestService } from './service/composer-rest-service.service';
 import { HomeService } from './home/home.service';
 import { AccountService } from './account/account.service';
+import { LoginComponent } from './login/login.component';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +23,8 @@ export class AppComponent implements OnInit {
     private router: Router,
     private restService: ComposerRestService,
     private homeService: HomeService,
-    private accountService: AccountService) {
+    private accountService: AccountService,
+    public dialog: MatDialog) {
   }
 
   private signUpInProgress = false;
@@ -50,6 +53,10 @@ export class AppComponent implements OnInit {
             });
         }
       });
+  }
+
+  openLoginPopup() {
+    const dialogRef = this.dialog.open(LoginComponent);
   }
 
   changeListener($event): void {

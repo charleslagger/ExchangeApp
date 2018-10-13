@@ -10,7 +10,8 @@ import { BalanceComponent } from '../balance/balance.component';
 import { HistoryComponent } from '../history/history.component';
 
 const routes: Routes = [
-  { path: '?loggedIn=true', redirectTo: '/home', pathMatch: 'full' },
+  { path: '?loggedIn=true', redirectTo: '', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'account', component: AccountComponent },
   { path: 'history', component: HistoryComponent },
