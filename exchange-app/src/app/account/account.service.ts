@@ -34,6 +34,17 @@ export class AccountService {
       });
   }
 
+  getCurrentUserPhoto() {
+    return this.httpClient.get('http://localhost:3000/api/system/ping', { withCredentials: true }).toPromise()
+      .then((data) => {
+        return this.httpClient.get('http://localhost:3000/api/Collector/' +
+          (data['participant'].split('#'))[1], { withCredentials: true }).toPromise()
+          .then((result) => {
+            return result['coverPhoto'];
+          });
+      });
+  }
+
   getCurrentUserId() {
     return this.httpClient.get('http://localhost:3000/api/system/ping', { withCredentials: true }).toPromise()
       .then((data) => {

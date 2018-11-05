@@ -37,6 +37,7 @@ asset Product identified by productId {
   o String cartStatus // to define product in cart
   o ProductStatus productStatus 
   --> Collector owner
+  o String ownerImage
 }
 
 /**
