@@ -1,0 +1,498 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'install', 'passport-github' ]
+2 info using npm@3.5.2
+3 info using node@v8.10.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData passport-github
+8 silly fetchNamedPackageData passport-github
+9 silly mapToRegistry name passport-github
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry uri https://registry.npmjs.org/passport-github
+13 verbose request uri https://registry.npmjs.org/passport-github
+14 verbose request no auth needed
+15 info attempt registry request try #1 at 10:08:20 PM
+16 verbose request id 3c3537244a6b98ad
+17 verbose etag W/"b4d6aebed15a2fdd3ca5e4ce55742ae3"
+18 verbose lastModified Sun, 27 May 2018 11:54:51 GMT
+19 http request GET https://registry.npmjs.org/passport-github
+20 http 304 https://registry.npmjs.org/passport-github
+21 verbose headers { date: 'Tue, 06 Nov 2018 15:08:20 GMT',
+21 verbose headers   connection: 'keep-alive',
+21 verbose headers   'set-cookie':
+21 verbose headers    [ '__cfduid=d729d0c812edee6a8638079e53b0582d01541516900; expires=Wed, 06-Nov-19 15:08:20 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+21 verbose headers   'cf-cache-status': 'HIT',
+21 verbose headers   'cache-control': 'max-age=300',
+21 verbose headers   'cf-ray': '475879921c9ea36e-HKG',
+21 verbose headers   etag: '"b4d6aebed15a2fdd3ca5e4ce55742ae3"',
+21 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+21 verbose headers   'last-modified': 'Sun, 27 May 2018 11:54:51 GMT',
+21 verbose headers   vary: 'accept-encoding, accept',
+21 verbose headers   server: 'cloudflare' }
+22 silly get cb [ 304,
+22 silly get   { date: 'Tue, 06 Nov 2018 15:08:20 GMT',
+22 silly get     connection: 'keep-alive',
+22 silly get     'set-cookie':
+22 silly get      [ '__cfduid=d729d0c812edee6a8638079e53b0582d01541516900; expires=Wed, 06-Nov-19 15:08:20 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+22 silly get     'cf-cache-status': 'HIT',
+22 silly get     'cache-control': 'max-age=300',
+22 silly get     'cf-ray': '475879921c9ea36e-HKG',
+22 silly get     etag: '"b4d6aebed15a2fdd3ca5e4ce55742ae3"',
+22 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+22 silly get     'last-modified': 'Sun, 27 May 2018 11:54:51 GMT',
+22 silly get     vary: 'accept-encoding, accept',
+22 silly get     server: 'cloudflare' } ]
+23 verbose etag https://registry.npmjs.org/passport-github from cache
+24 verbose get saving passport-github to /home/charles/.npm/registry.npmjs.org/passport-github/.cache.json
+25 silly install normalizeTree
+26 silly loadCurrentTree Finishing
+27 silly loadIdealTree Starting
+28 silly install loadIdealTree
+29 silly cloneCurrentTree Starting
+30 silly install cloneCurrentTreeToIdealTree
+31 silly cloneCurrentTree Finishing
+32 silly loadShrinkwrap Starting
+33 silly install loadShrinkwrap
+34 silly loadShrinkwrap Finishing
+35 silly loadAllDepsIntoIdealTree Starting
+36 silly install loadAllDepsIntoIdealTree
+37 silly resolveWithNewModule passport-github@1.1.0 checking installable status
+38 silly cache add args [ 'passport-github', null ]
+39 verbose cache add spec passport-github
+40 silly cache add parsed spec Result {
+40 silly cache add   raw: 'passport-github',
+40 silly cache add   scope: null,
+40 silly cache add   name: 'passport-github',
+40 silly cache add   rawSpec: '',
+40 silly cache add   spec: 'latest',
+40 silly cache add   type: 'tag' }
+41 silly addNamed passport-github@latest
+42 verbose addNamed "latest" is being treated as a dist-tag for passport-github
+43 info addNameTag [ 'passport-github', 'latest' ]
+44 silly mapToRegistry name passport-github
+45 silly mapToRegistry using default registry
+46 silly mapToRegistry registry https://registry.npmjs.org/
+47 silly mapToRegistry uri https://registry.npmjs.org/passport-github
+48 verbose addNameTag registry:https://registry.npmjs.org/passport-github not in flight; fetching
+49 verbose get https://registry.npmjs.org/passport-github not expired, no request
+50 silly addNameTag next cb for passport-github with tag latest
+51 silly addNamed passport-github@1.1.0
+52 verbose addNamed "1.1.0" is a plain semver version for passport-github
+53 silly cache afterAdd passport-github@1.1.0
+54 verbose afterAdd /home/charles/.npm/passport-github/1.1.0/package/package.json not in flight; writing
+55 verbose afterAdd /home/charles/.npm/passport-github/1.1.0/package/package.json written
+56 silly fetchNamedPackageData passport-oauth2
+57 silly mapToRegistry name passport-oauth2
+58 silly mapToRegistry using default registry
+59 silly mapToRegistry registry https://registry.npmjs.org/
+60 silly mapToRegistry uri https://registry.npmjs.org/passport-oauth2
+61 verbose request uri https://registry.npmjs.org/passport-oauth2
+62 verbose request no auth needed
+63 info attempt registry request try #1 at 10:08:20 PM
+64 verbose etag W/"b4589bd08003910ffac10b871f3e51af"
+65 verbose lastModified Sun, 27 May 2018 11:55:16 GMT
+66 http request GET https://registry.npmjs.org/passport-oauth2
+67 http 304 https://registry.npmjs.org/passport-oauth2
+68 verbose headers { date: 'Tue, 06 Nov 2018 15:08:20 GMT',
+68 verbose headers   connection: 'keep-alive',
+68 verbose headers   'set-cookie':
+68 verbose headers    [ '__cfduid=d729d0c812edee6a8638079e53b0582d01541516900; expires=Wed, 06-Nov-19 15:08:20 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+68 verbose headers   'cf-cache-status': 'HIT',
+68 verbose headers   'cache-control': 'max-age=300',
+68 verbose headers   'cf-ray': '47587992ad36a36e-HKG',
+68 verbose headers   etag: '"b4589bd08003910ffac10b871f3e51af"',
+68 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+68 verbose headers   'last-modified': 'Sun, 27 May 2018 11:55:16 GMT',
+68 verbose headers   vary: 'accept-encoding, accept',
+68 verbose headers   server: 'cloudflare' }
+69 silly get cb [ 304,
+69 silly get   { date: 'Tue, 06 Nov 2018 15:08:20 GMT',
+69 silly get     connection: 'keep-alive',
+69 silly get     'set-cookie':
+69 silly get      [ '__cfduid=d729d0c812edee6a8638079e53b0582d01541516900; expires=Wed, 06-Nov-19 15:08:20 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+69 silly get     'cf-cache-status': 'HIT',
+69 silly get     'cache-control': 'max-age=300',
+69 silly get     'cf-ray': '47587992ad36a36e-HKG',
+69 silly get     etag: '"b4589bd08003910ffac10b871f3e51af"',
+69 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+69 silly get     'last-modified': 'Sun, 27 May 2018 11:55:16 GMT',
+69 silly get     vary: 'accept-encoding, accept',
+69 silly get     server: 'cloudflare' } ]
+70 verbose etag https://registry.npmjs.org/passport-oauth2 from cache
+71 verbose get saving passport-oauth2 to /home/charles/.npm/registry.npmjs.org/passport-oauth2/.cache.json
+72 silly resolveWithNewModule passport-oauth2@1.4.0 checking installable status
+73 silly cache add args [ 'passport-oauth2@1.x.x', null ]
+74 verbose cache add spec passport-oauth2@1.x.x
+75 silly cache add parsed spec Result {
+75 silly cache add   raw: 'passport-oauth2@1.x.x',
+75 silly cache add   scope: null,
+75 silly cache add   name: 'passport-oauth2',
+75 silly cache add   rawSpec: '1.x.x',
+75 silly cache add   spec: '>=1.0.0 <2.0.0',
+75 silly cache add   type: 'range' }
+76 silly addNamed passport-oauth2@>=1.0.0 <2.0.0
+77 verbose addNamed ">=1.0.0 <2.0.0" is a valid semver range for passport-oauth2
+78 silly addNameRange { name: 'passport-oauth2',
+78 silly addNameRange   range: '>=1.0.0 <2.0.0',
+78 silly addNameRange   hasData: false }
+79 silly mapToRegistry name passport-oauth2
+80 silly mapToRegistry using default registry
+81 silly mapToRegistry registry https://registry.npmjs.org/
+82 silly mapToRegistry uri https://registry.npmjs.org/passport-oauth2
+83 verbose addNameRange registry:https://registry.npmjs.org/passport-oauth2 not in flight; fetching
+84 verbose get https://registry.npmjs.org/passport-oauth2 not expired, no request
+85 silly addNameRange number 2 { name: 'passport-oauth2',
+85 silly addNameRange   range: '>=1.0.0 <2.0.0',
+85 silly addNameRange   hasData: true }
+86 silly addNameRange versions [ 'passport-oauth2',
+86 silly addNameRange   [ '1.0.0', '1.1.0', '1.1.1', '1.1.2', '1.2.0', '1.3.0', '1.4.0' ] ]
+87 silly addNamed passport-oauth2@1.4.0
+88 verbose addNamed "1.4.0" is a plain semver version for passport-oauth2
+89 silly cache afterAdd passport-oauth2@1.4.0
+90 verbose afterAdd /home/charles/.npm/passport-oauth2/1.4.0/package/package.json not in flight; writing
+91 verbose afterAdd /home/charles/.npm/passport-oauth2/1.4.0/package/package.json written
+92 silly fetchNamedPackageData oauth
+93 silly mapToRegistry name oauth
+94 silly mapToRegistry using default registry
+95 silly mapToRegistry registry https://registry.npmjs.org/
+96 silly mapToRegistry uri https://registry.npmjs.org/oauth
+97 silly fetchNamedPackageData passport-strategy
+98 silly mapToRegistry name passport-strategy
+99 silly mapToRegistry using default registry
+100 silly mapToRegistry registry https://registry.npmjs.org/
+101 silly mapToRegistry uri https://registry.npmjs.org/passport-strategy
+102 silly fetchNamedPackageData uid2
+103 silly mapToRegistry name uid2
+104 silly mapToRegistry using default registry
+105 silly mapToRegistry registry https://registry.npmjs.org/
+106 silly mapToRegistry uri https://registry.npmjs.org/uid2
+107 silly fetchNamedPackageData utils-merge
+108 silly mapToRegistry name utils-merge
+109 silly mapToRegistry using default registry
+110 silly mapToRegistry registry https://registry.npmjs.org/
+111 silly mapToRegistry uri https://registry.npmjs.org/utils-merge
+112 verbose request uri https://registry.npmjs.org/passport-strategy
+113 verbose request no auth needed
+114 info attempt registry request try #1 at 10:08:20 PM
+115 verbose etag W/"b869e07f6c2dcb6e5423654c5db6f2c8"
+116 verbose lastModified Sun, 27 May 2018 11:55:36 GMT
+117 http request GET https://registry.npmjs.org/passport-strategy
+118 verbose request uri https://registry.npmjs.org/utils-merge
+119 verbose request no auth needed
+120 info attempt registry request try #1 at 10:08:20 PM
+121 verbose etag W/"f2c3abf27ab10bdc6c8aa49ef90ca9a4"
+122 verbose lastModified Sun, 27 May 2018 20:39:16 GMT
+123 http request GET https://registry.npmjs.org/utils-merge
+124 verbose request uri https://registry.npmjs.org/oauth
+125 verbose request no auth needed
+126 info attempt registry request try #1 at 10:08:20 PM
+127 verbose etag W/"1dcb2fac4c2dabd3845cffbe2d3b47fd"
+128 verbose lastModified Sun, 27 May 2018 10:56:31 GMT
+129 http request GET https://registry.npmjs.org/oauth
+130 verbose request uri https://registry.npmjs.org/uid2
+131 verbose request no auth needed
+132 info attempt registry request try #1 at 10:08:20 PM
+133 verbose etag W/"cea3f56a15b744207c117f00a6c59445"
+134 verbose lastModified Sun, 27 May 2018 20:23:03 GMT
+135 http request GET https://registry.npmjs.org/uid2
+136 http 304 https://registry.npmjs.org/passport-strategy
+137 verbose headers { date: 'Tue, 06 Nov 2018 15:08:20 GMT',
+137 verbose headers   connection: 'keep-alive',
+137 verbose headers   'set-cookie':
+137 verbose headers    [ '__cfduid=d729d0c812edee6a8638079e53b0582d01541516900; expires=Wed, 06-Nov-19 15:08:20 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+137 verbose headers   'cf-cache-status': 'HIT',
+137 verbose headers   'cache-control': 'max-age=300',
+137 verbose headers   'cf-ray': '47587992fd8ea36e-HKG',
+137 verbose headers   etag: '"b869e07f6c2dcb6e5423654c5db6f2c8"',
+137 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+137 verbose headers   'last-modified': 'Sun, 27 May 2018 11:55:36 GMT',
+137 verbose headers   vary: 'accept-encoding, accept',
+137 verbose headers   server: 'cloudflare' }
+138 silly get cb [ 304,
+138 silly get   { date: 'Tue, 06 Nov 2018 15:08:20 GMT',
+138 silly get     connection: 'keep-alive',
+138 silly get     'set-cookie':
+138 silly get      [ '__cfduid=d729d0c812edee6a8638079e53b0582d01541516900; expires=Wed, 06-Nov-19 15:08:20 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+138 silly get     'cf-cache-status': 'HIT',
+138 silly get     'cache-control': 'max-age=300',
+138 silly get     'cf-ray': '47587992fd8ea36e-HKG',
+138 silly get     etag: '"b869e07f6c2dcb6e5423654c5db6f2c8"',
+138 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+138 silly get     'last-modified': 'Sun, 27 May 2018 11:55:36 GMT',
+138 silly get     vary: 'accept-encoding, accept',
+138 silly get     server: 'cloudflare' } ]
+139 verbose etag https://registry.npmjs.org/passport-strategy from cache
+140 verbose get saving passport-strategy to /home/charles/.npm/registry.npmjs.org/passport-strategy/.cache.json
+141 silly resolveWithNewModule passport-strategy@1.0.0 checking installable status
+142 silly cache add args [ 'passport-strategy@1.x.x', null ]
+143 verbose cache add spec passport-strategy@1.x.x
+144 silly cache add parsed spec Result {
+144 silly cache add   raw: 'passport-strategy@1.x.x',
+144 silly cache add   scope: null,
+144 silly cache add   name: 'passport-strategy',
+144 silly cache add   rawSpec: '1.x.x',
+144 silly cache add   spec: '>=1.0.0 <2.0.0',
+144 silly cache add   type: 'range' }
+145 silly addNamed passport-strategy@>=1.0.0 <2.0.0
+146 verbose addNamed ">=1.0.0 <2.0.0" is a valid semver range for passport-strategy
+147 silly addNameRange { name: 'passport-strategy',
+147 silly addNameRange   range: '>=1.0.0 <2.0.0',
+147 silly addNameRange   hasData: false }
+148 silly mapToRegistry name passport-strategy
+149 silly mapToRegistry using default registry
+150 silly mapToRegistry registry https://registry.npmjs.org/
+151 silly mapToRegistry uri https://registry.npmjs.org/passport-strategy
+152 verbose addNameRange registry:https://registry.npmjs.org/passport-strategy not in flight; fetching
+153 verbose get https://registry.npmjs.org/passport-strategy not expired, no request
+154 silly addNameRange number 2 { name: 'passport-strategy',
+154 silly addNameRange   range: '>=1.0.0 <2.0.0',
+154 silly addNameRange   hasData: true }
+155 silly addNameRange versions [ 'passport-strategy', [ '1.0.0' ] ]
+156 silly addNamed passport-strategy@1.0.0
+157 verbose addNamed "1.0.0" is a plain semver version for passport-strategy
+158 silly cache afterAdd passport-strategy@1.0.0
+159 verbose afterAdd /home/charles/.npm/passport-strategy/1.0.0/package/package.json not in flight; writing
+160 verbose afterAdd /home/charles/.npm/passport-strategy/1.0.0/package/package.json written
+161 http 304 https://registry.npmjs.org/utils-merge
+162 verbose headers { date: 'Tue, 06 Nov 2018 15:08:20 GMT',
+162 verbose headers   connection: 'keep-alive',
+162 verbose headers   'set-cookie':
+162 verbose headers    [ '__cfduid=d426d0ee82704ce4030e40c509a7f2e4b1541516900; expires=Wed, 06-Nov-19 15:08:20 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+162 verbose headers   'cf-cache-status': 'HIT',
+162 verbose headers   'cache-control': 'max-age=300',
+162 verbose headers   'cf-ray': '475879935f86a34a-HKG',
+162 verbose headers   etag: '"f2c3abf27ab10bdc6c8aa49ef90ca9a4"',
+162 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+162 verbose headers   'last-modified': 'Sun, 27 May 2018 20:39:16 GMT',
+162 verbose headers   vary: 'accept-encoding, accept',
+162 verbose headers   server: 'cloudflare' }
+163 silly get cb [ 304,
+163 silly get   { date: 'Tue, 06 Nov 2018 15:08:20 GMT',
+163 silly get     connection: 'keep-alive',
+163 silly get     'set-cookie':
+163 silly get      [ '__cfduid=d426d0ee82704ce4030e40c509a7f2e4b1541516900; expires=Wed, 06-Nov-19 15:08:20 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+163 silly get     'cf-cache-status': 'HIT',
+163 silly get     'cache-control': 'max-age=300',
+163 silly get     'cf-ray': '475879935f86a34a-HKG',
+163 silly get     etag: '"f2c3abf27ab10bdc6c8aa49ef90ca9a4"',
+163 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+163 silly get     'last-modified': 'Sun, 27 May 2018 20:39:16 GMT',
+163 silly get     vary: 'accept-encoding, accept',
+163 silly get     server: 'cloudflare' } ]
+164 verbose etag https://registry.npmjs.org/utils-merge from cache
+165 verbose get saving utils-merge to /home/charles/.npm/registry.npmjs.org/utils-merge/.cache.json
+166 silly resolveWithNewModule utils-merge@1.0.1 checking installable status
+167 silly cache add args [ 'utils-merge@1.x.x', null ]
+168 verbose cache add spec utils-merge@1.x.x
+169 silly cache add parsed spec Result {
+169 silly cache add   raw: 'utils-merge@1.x.x',
+169 silly cache add   scope: null,
+169 silly cache add   name: 'utils-merge',
+169 silly cache add   rawSpec: '1.x.x',
+169 silly cache add   spec: '>=1.0.0 <2.0.0',
+169 silly cache add   type: 'range' }
+170 silly addNamed utils-merge@>=1.0.0 <2.0.0
+171 verbose addNamed ">=1.0.0 <2.0.0" is a valid semver range for utils-merge
+172 silly addNameRange { name: 'utils-merge', range: '>=1.0.0 <2.0.0', hasData: false }
+173 silly mapToRegistry name utils-merge
+174 silly mapToRegistry using default registry
+175 silly mapToRegistry registry https://registry.npmjs.org/
+176 silly mapToRegistry uri https://registry.npmjs.org/utils-merge
+177 verbose addNameRange registry:https://registry.npmjs.org/utils-merge not in flight; fetching
+178 http 304 https://registry.npmjs.org/uid2
+179 verbose headers { date: 'Tue, 06 Nov 2018 15:08:20 GMT',
+179 verbose headers   connection: 'keep-alive',
+179 verbose headers   'set-cookie':
+179 verbose headers    [ '__cfduid=d3919b6df42a09e9cbe53a6983b31b9ad1541516900; expires=Wed, 06-Nov-19 15:08:20 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+179 verbose headers   'cf-cache-status': 'HIT',
+179 verbose headers   'cache-control': 'max-age=300',
+179 verbose headers   'cf-ray': '475879935bd332a7-HKG',
+179 verbose headers   etag: '"cea3f56a15b744207c117f00a6c59445"',
+179 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+179 verbose headers   'last-modified': 'Sun, 27 May 2018 20:23:03 GMT',
+179 verbose headers   vary: 'accept-encoding, accept',
+179 verbose headers   server: 'cloudflare' }
+180 silly get cb [ 304,
+180 silly get   { date: 'Tue, 06 Nov 2018 15:08:20 GMT',
+180 silly get     connection: 'keep-alive',
+180 silly get     'set-cookie':
+180 silly get      [ '__cfduid=d3919b6df42a09e9cbe53a6983b31b9ad1541516900; expires=Wed, 06-Nov-19 15:08:20 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+180 silly get     'cf-cache-status': 'HIT',
+180 silly get     'cache-control': 'max-age=300',
+180 silly get     'cf-ray': '475879935bd332a7-HKG',
+180 silly get     etag: '"cea3f56a15b744207c117f00a6c59445"',
+180 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+180 silly get     'last-modified': 'Sun, 27 May 2018 20:23:03 GMT',
+180 silly get     vary: 'accept-encoding, accept',
+180 silly get     server: 'cloudflare' } ]
+181 verbose etag https://registry.npmjs.org/uid2 from cache
+182 verbose get saving uid2 to /home/charles/.npm/registry.npmjs.org/uid2/.cache.json
+183 http 304 https://registry.npmjs.org/oauth
+184 verbose headers { date: 'Tue, 06 Nov 2018 15:08:20 GMT',
+184 verbose headers   connection: 'keep-alive',
+184 verbose headers   'set-cookie':
+184 verbose headers    [ '__cfduid=d335c87158d8c6f96cd07bd2aa5a80ce71541516900; expires=Wed, 06-Nov-19 15:08:20 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+184 verbose headers   'cf-cache-status': 'HIT',
+184 verbose headers   'cache-control': 'max-age=300',
+184 verbose headers   'cf-ray': '475879935d2a32c5-HKG',
+184 verbose headers   etag: '"1dcb2fac4c2dabd3845cffbe2d3b47fd"',
+184 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+184 verbose headers   'last-modified': 'Sun, 27 May 2018 10:56:31 GMT',
+184 verbose headers   vary: 'accept-encoding, accept',
+184 verbose headers   server: 'cloudflare' }
+185 silly get cb [ 304,
+185 silly get   { date: 'Tue, 06 Nov 2018 15:08:20 GMT',
+185 silly get     connection: 'keep-alive',
+185 silly get     'set-cookie':
+185 silly get      [ '__cfduid=d335c87158d8c6f96cd07bd2aa5a80ce71541516900; expires=Wed, 06-Nov-19 15:08:20 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+185 silly get     'cf-cache-status': 'HIT',
+185 silly get     'cache-control': 'max-age=300',
+185 silly get     'cf-ray': '475879935d2a32c5-HKG',
+185 silly get     etag: '"1dcb2fac4c2dabd3845cffbe2d3b47fd"',
+185 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+185 silly get     'last-modified': 'Sun, 27 May 2018 10:56:31 GMT',
+185 silly get     vary: 'accept-encoding, accept',
+185 silly get     server: 'cloudflare' } ]
+186 verbose etag https://registry.npmjs.org/oauth from cache
+187 verbose get saving oauth to /home/charles/.npm/registry.npmjs.org/oauth/.cache.json
+188 verbose get https://registry.npmjs.org/utils-merge not expired, no request
+189 silly addNameRange number 2 { name: 'utils-merge', range: '>=1.0.0 <2.0.0', hasData: true }
+190 silly addNameRange versions [ 'utils-merge', [ '1.0.0', '1.0.1' ] ]
+191 silly addNamed utils-merge@1.0.1
+192 verbose addNamed "1.0.1" is a plain semver version for utils-merge
+193 silly resolveWithNewModule uid2@0.0.3 checking installable status
+194 silly cache add args [ 'uid2@0.0.x', null ]
+195 verbose cache add spec uid2@0.0.x
+196 silly cache add parsed spec Result {
+196 silly cache add   raw: 'uid2@0.0.x',
+196 silly cache add   scope: null,
+196 silly cache add   name: 'uid2',
+196 silly cache add   rawSpec: '0.0.x',
+196 silly cache add   spec: '>=0.0.0 <0.1.0',
+196 silly cache add   type: 'range' }
+197 silly addNamed uid2@>=0.0.0 <0.1.0
+198 verbose addNamed ">=0.0.0 <0.1.0" is a valid semver range for uid2
+199 silly addNameRange { name: 'uid2', range: '>=0.0.0 <0.1.0', hasData: false }
+200 silly mapToRegistry name uid2
+201 silly mapToRegistry using default registry
+202 silly mapToRegistry registry https://registry.npmjs.org/
+203 silly mapToRegistry uri https://registry.npmjs.org/uid2
+204 verbose addNameRange registry:https://registry.npmjs.org/uid2 not in flight; fetching
+205 silly cache afterAdd utils-merge@1.0.1
+206 verbose afterAdd /home/charles/.npm/utils-merge/1.0.1/package/package.json not in flight; writing
+207 silly resolveWithNewModule oauth@0.9.15 checking installable status
+208 silly cache add args [ 'oauth@0.9.x', null ]
+209 verbose cache add spec oauth@0.9.x
+210 silly cache add parsed spec Result {
+210 silly cache add   raw: 'oauth@0.9.x',
+210 silly cache add   scope: null,
+210 silly cache add   name: 'oauth',
+210 silly cache add   rawSpec: '0.9.x',
+210 silly cache add   spec: '>=0.9.0 <0.10.0',
+210 silly cache add   type: 'range' }
+211 silly addNamed oauth@>=0.9.0 <0.10.0
+212 verbose addNamed ">=0.9.0 <0.10.0" is a valid semver range for oauth
+213 silly addNameRange { name: 'oauth', range: '>=0.9.0 <0.10.0', hasData: false }
+214 silly mapToRegistry name oauth
+215 silly mapToRegistry using default registry
+216 silly mapToRegistry registry https://registry.npmjs.org/
+217 silly mapToRegistry uri https://registry.npmjs.org/oauth
+218 verbose addNameRange registry:https://registry.npmjs.org/oauth not in flight; fetching
+219 verbose get https://registry.npmjs.org/uid2 not expired, no request
+220 silly addNameRange number 2 { name: 'uid2', range: '>=0.0.0 <0.1.0', hasData: true }
+221 silly addNameRange versions [ 'uid2', [ '0.0.1', '0.0.2', '0.0.3' ] ]
+222 silly addNamed uid2@0.0.3
+223 verbose addNamed "0.0.3" is a plain semver version for uid2
+224 verbose afterAdd /home/charles/.npm/utils-merge/1.0.1/package/package.json written
+225 verbose get https://registry.npmjs.org/oauth not expired, no request
+226 silly addNameRange number 2 { name: 'oauth', range: '>=0.9.0 <0.10.0', hasData: true }
+227 silly addNameRange versions [ 'oauth',
+227 silly addNameRange   [ '0.7.4',
+227 silly addNameRange     '0.7.5',
+227 silly addNameRange     '0.7.6',
+227 silly addNameRange     '0.7.7',
+227 silly addNameRange     '0.8.0',
+227 silly addNameRange     '0.8.1',
+227 silly addNameRange     '0.8.2',
+227 silly addNameRange     '0.8.3',
+227 silly addNameRange     '0.8.4',
+227 silly addNameRange     '0.9.0',
+227 silly addNameRange     '0.9.1',
+227 silly addNameRange     '0.9.2',
+227 silly addNameRange     '0.9.3',
+227 silly addNameRange     '0.9.4',
+227 silly addNameRange     '0.9.5',
+227 silly addNameRange     '0.9.6',
+227 silly addNameRange     '0.9.7',
+227 silly addNameRange     '0.9.8',
+227 silly addNameRange     '0.9.9',
+227 silly addNameRange     '0.9.10',
+227 silly addNameRange     '0.9.11',
+227 silly addNameRange     '0.9.12',
+227 silly addNameRange     '0.9.13',
+227 silly addNameRange     '0.9.14',
+227 silly addNameRange     '0.9.15' ] ]
+228 silly addNamed oauth@0.9.15
+229 verbose addNamed "0.9.15" is a plain semver version for oauth
+230 silly cache afterAdd uid2@0.0.3
+231 verbose afterAdd /home/charles/.npm/uid2/0.0.3/package/package.json not in flight; writing
+232 silly cache afterAdd oauth@0.9.15
+233 verbose afterAdd /home/charles/.npm/oauth/0.9.15/package/package.json not in flight; writing
+234 verbose afterAdd /home/charles/.npm/uid2/0.0.3/package/package.json written
+235 verbose afterAdd /home/charles/.npm/oauth/0.9.15/package/package.json written
+236 silly loadAllDepsIntoIdealTree Finishing
+237 silly idealTree:prePrune build
+237 silly idealTree:prePrune ├── oauth@0.9.15
+237 silly idealTree:prePrune ├── passport-github@1.1.0
+237 silly idealTree:prePrune ├── passport-oauth2@1.4.0
+237 silly idealTree:prePrune ├── passport-strategy@1.0.0
+237 silly idealTree:prePrune ├── uid2@0.0.3
+237 silly idealTree:prePrune └── utils-merge@1.0.1
+238 silly loadIdealTree Finishing
+239 silly currentTree build
+239 silly currentTree ├── oauth@0.9.15
+239 silly currentTree ├── passport-github@1.1.0
+239 silly currentTree ├── passport-oauth2@1.4.0
+239 silly currentTree ├── passport-strategy@1.0.0
+239 silly currentTree ├── uid2@0.0.3
+239 silly currentTree └── utils-merge@1.0.1
+240 silly idealTree build
+240 silly idealTree ├── oauth@0.9.15
+240 silly idealTree ├── passport-github@1.1.0
+240 silly idealTree ├── passport-oauth2@1.4.0
+240 silly idealTree ├── passport-strategy@1.0.0
+240 silly idealTree ├── uid2@0.0.3
+240 silly idealTree └── utils-merge@1.0.1
+241 silly generateActionsToTake Starting
+242 silly install generateActionsToTake
+243 warn checkPermissions Missing write access to /home/charles/HyperledgerComposers/ExchangeApp/server/build/node_modules
+244 silly rollbackFailedOptional Starting
+245 silly rollbackFailedOptional Finishing
+246 silly runTopLevelLifecycles Starting
+247 silly runTopLevelLifecycles Finishing
+248 silly install printInstalled
+249 warn enoent ENOENT: no such file or directory, open '/home/charles/HyperledgerComposers/ExchangeApp/server/build/package.json'
+250 warn build No description
+251 warn build No repository field.
+252 warn build No README data
+253 warn build No license field.
+254 verbose stack Error: EACCES: permission denied, access '/home/charles/HyperledgerComposers/ExchangeApp/server/build/node_modules'
+255 verbose cwd /home/charles/HyperledgerComposers/ExchangeApp/server/build
+256 error Linux 4.15.0-29-generic
+257 error argv "/usr/bin/node" "/usr/bin/npm" "install" "passport-github"
+258 error node v8.10.0
+259 error npm  v3.5.2
+260 error path /home/charles/HyperledgerComposers/ExchangeApp/server/build/node_modules
+261 error code EACCES
+262 error errno -13
+263 error syscall access
+264 error Error: EACCES: permission denied, access '/home/charles/HyperledgerComposers/ExchangeApp/server/build/node_modules'
+264 error  { Error: EACCES: permission denied, access '/home/charles/HyperledgerComposers/ExchangeApp/server/build/node_modules'
+264 error   errno: -13,
+264 error   code: 'EACCES',
+264 error   syscall: 'access',
+264 error   path: '/home/charles/HyperledgerComposers/ExchangeApp/server/build/node_modules' }
+265 error Please try running this command again as root/Administrator.
+266 verbose exit [ -13, true ]
