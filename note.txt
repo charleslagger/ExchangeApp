@@ -4,4 +4,5 @@ passport-github
 luu y composer-rest-server, composer-cli, yo, passport github phai duoc luu trong cung 1 node_module.
 
 
-sau khi 
+Khi cai google oauth phai dung dung ban 2 va phai enable google api+
+https://console.developers.google.com/apis/api/plus.googleapis.com/overview?project=trans-falcon-222115&hl=en
