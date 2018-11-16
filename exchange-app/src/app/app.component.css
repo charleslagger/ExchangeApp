@@ -1,3 +1,21 @@
+.align-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color:white;
+  background: gray url('/assets/test/img/cover.png');
+}
+
+.align-card h5 {
+  color:white;
+}
+
+.align-card input{
+  text-align: center;
+}
+
+
 .card-signin {
     border: 0;
     border-radius: 1rem;
@@ -12,6 +30,8 @@
   
   .card-signin .card-body {
     padding: 2rem;
+    background-color: #0f9289;
+    border-radius: inherit;
   }
   
   .form-signin {
@@ -43,13 +63,14 @@
   
   .form-label-group>label {
     position: absolute;
+    padding-left: 10px;
+    text-align: left;
     top: 0;
-    left: 0;
     display: block;
     width: 100%;
     margin-bottom: 0;
     /* Override default `<label>` margin */
-    line-height: 1.5;
+    line-height: 1;
     color: #495057;
     border: 1px solid transparent;
     border-radius: .25rem;
@@ -86,5 +107,6 @@
     padding-bottom: calc(var(--input-padding-y) / 3);
     font-size: 12px;
     color: #777;
+    align-items: flex-start;
   }
   
