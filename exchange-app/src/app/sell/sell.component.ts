@@ -3,6 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { SellService } from './sell.service';
 import { AccountService } from '../account/account.service';
 import { MyErrorStateMatcher } from './model/input_error_state_matcher';
+import { isGeneratedFile } from '@angular/compiler/src/aot/util';
 
 export interface ProductType {
   value: string;
@@ -23,10 +24,15 @@ export class SellComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
   
   proTypes: ProductType[] = [
-    { value: 'SMART_PHONE' },
-    { value: 'VEGETABLE' },
-    { value: 'CLOTHES' },
-    { value: 'CAR' },
+    { value: 'Điện thoại' },
+    { value: 'Rau, củ, quả' },
+    { value: 'Quần áo' },
+    { value: 'Xe' },
+
+    // { value: 'SMART_PHONE' },
+    // { value: 'VEGETABLE' },
+    // { value: 'CLOTHES' },
+    // { value: 'CAR' },
   ];
 
   constructor(private sellService: SellService,
@@ -50,8 +56,24 @@ export class SellComponent implements OnInit {
 
   createProduct() {
     console.log('==>>ten sp: ' + this.productObject.name);
-    this.productTypeValue = ((JSON.stringify(this.productObject.productType).split(':'))[1].split('"'))[1];
-    // this.createInProgress = true;
+    switch(((JSON.stringify(this.productObject.productType).split(':'))[1].split('"'))[1]){
+      case 'Điện thoại':{
+        this.productTypeValue = 'SMART_PHONE';
+        break;
+      }
+      case 'Rau, củ, quả':{
+        this.productTypeValue = 'VEGETABLE';
+        break;
+      }
+      case 'Quần áo':{
+        this.productTypeValue = 'CLOTHES';
+        break;
+      }
+      case 'Xe':{
+        this.productTypeValue = 'CAR';
+        break;
+      }
+    }
     return this.accountService.getCurrentUserPhoto().then(coverImage => {
       return this.accountService.getCurrentUserId().then(currentUserId => {
         return this.sellService.createProduct(this.productObject.name,

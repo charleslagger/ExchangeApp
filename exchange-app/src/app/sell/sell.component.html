@@ -1,6 +1,6 @@
 <div class="sell-body">
   <h2>Tạo thông tin mặt hàng muốn bán</h2>
-  <form (ngSubmit)="createProduct()" #createProForm="ngForm">
+  <form class = "sell-form" (ngSubmit)="createProduct()" #createProForm="ngForm">
     <mat-form-field>
       <mat-placeholder class="placeholder">Tên sản phẩm</mat-placeholder>
       <input type="text" [(ngModel)]="productObject.name" matInput [formControl]="nameFormControl"
@@ -24,7 +24,7 @@
     <!-- <input type="text" [(ngModel)]="productObject.pricePerUnit" #name="ngModel" name="pricePerUnit"> -->
     <br>
     <mat-form-field>
-      <mat-placeholder class="placeholder">Giá trên đơn vị sản phẩm (VNĐ)</mat-placeholder>
+      <mat-placeholder class="placeholder">Giá một đơn vị (VNĐ)</mat-placeholder>
       <input type="text" [(ngModel)]="productObject.pricePerUnit" matInput [formControl]="pricePerUnitFormControl"
              [errorStateMatcher]="matcher">
       <mat-error *ngIf="pricePerUnitFormControl.hasError('required')">
@@ -54,8 +54,9 @@
       </mat-error>
     </mat-form-field>
     <br>
-    <button type="submit" class="primary">
+    <!-- <button type="submit" class="primary">
       <span>Đăng mặt hàng</span>
-    </button>
+    </button> -->
+    <button type="submit" style="background-color: #6eba3c; color: white;" mat-button>Đăng mặt hàng</button>
   </form>
 </div>

@@ -5,6 +5,7 @@ import { ComposerRestService } from './service/composer-rest-service.service';
 import { HomeService } from './home/home.service';
 import { AccountService } from './account/account.service';
 import { LoginComponent } from './login/login.component';
+import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -14,12 +15,18 @@ import { LoginComponent } from './login/login.component';
 
 export class AppComponent implements OnInit {
   title = 'exchange-app';
+
+  registerForm: FormGroup;
+  submitted = false;
+
   private authenticated = false;
   private loggedIn = false;
   private currentUser;
   private imageEncode;
 
-  constructor(private route: ActivatedRoute,
+  constructor(
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
     private router: Router,
     private restService: ComposerRestService,
     private homeService: HomeService,
@@ -27,7 +34,6 @@ export class AppComponent implements OnInit {
     public dialog: MatDialog) {
   }
 
-  private signUpInProgress = false;
   @ViewChild('signupForm') signupForm;
   private signUp = {
     email: '',
@@ -53,6 +59,16 @@ export class AppComponent implements OnInit {
             });
         }
       });
+
+      this.registerForm = this.formBuilder.group({
+        email: ['', [Validators.required, Validators.email]],
+        firstName: ['', Validators.required],
+        surname: ['', Validators.required],
+        phoneNum: ['', Validators.required],
+        country: ['', Validators.required],
+        city: ['', Validators.required],
+        street: ['', Validators.required],
+    });
   }
 
   openLoginPopup() {
@@ -88,15 +104,24 @@ export class AppComponent implements OnInit {
       });
   }
 
+  // convenience getter for easy access to form fields
+  get f() { return this.registerForm.controls; }
+
   onSignUp() {
-    this.signUpInProgress = true;
+
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {
+      return;
+    }
+
     return this.restService.signUp(this.signUp, this.imageEncode)
       .then(() => {
         return this.getCurrentUser();
       })
       .then(() => {
         this.loggedIn = true;
-        this.signUpInProgress = true;
         console.log('Sign up done');
       });
   }

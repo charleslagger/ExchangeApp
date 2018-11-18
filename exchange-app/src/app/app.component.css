@@ -1,8 +1,9 @@
 .align-card {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
+  align-items: flex-start;
+  padding-top: 2rem;
+  height: 200vh;
   color:white;
   background: gray url('/assets/test/img/cover.png');
 }
@@ -15,6 +16,11 @@
   text-align: center;
 }
 
+.invalid-feedback {
+  /* display: none; */
+  font-size: 80%;
+  color: #dc3545;
+}
 
 .card-signin {
     border: 0;
@@ -49,7 +55,8 @@
   
   .form-label-group {
     position: relative;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+    padding-top: 0;
   }
   
   .form-label-group input {
@@ -58,7 +65,7 @@
   
   .form-label-group>input,
   .form-label-group>label {
-    padding: var(--input-padding-y) var(--input-padding-x);
+    padding: invar(--put-padding-y) var(--input-padding-x);
   }
   
   .form-label-group>label {
@@ -105,7 +112,7 @@
   .form-label-group input:not(:placeholder-shown)~label {
     padding-top: calc(var(--input-padding-y) / 3);
     padding-bottom: calc(var(--input-padding-y) / 3);
-    font-size: 12px;
+    font-size: 13px;
     color: #777;
     align-items: flex-start;
   }

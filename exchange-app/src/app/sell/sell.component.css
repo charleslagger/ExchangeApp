@@ -16,6 +16,12 @@
   color: white;
 }
 
+.sell-form{
+  position: relative;;
+  padding-left: 40%;
+  padding-right: 45%;
+}
+
 ::ng-deep .mat-form-field-underline, ::ng-deep .mat-form-field-ripple {
   background-color: white !important;
   color: white !important

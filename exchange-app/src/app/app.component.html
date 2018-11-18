@@ -62,9 +62,6 @@
 						</div>
 						<div class="col-sm-9">
 							<h3>Minh bạch</h3>
-							<p>
-								TODO
-							</p>
 						</div>
 					</div>
 				</div>
@@ -75,9 +72,6 @@
 						</div>
 						<div class="col-sm-9">
 							<h3>Ngang hàng, phi tập trung</h3>
-							<p>
-								TODO
-							</p>
 						</div>
 					</div>
 				</div>
@@ -91,9 +85,6 @@
 						</div>
 						<div class="col-sm-9">
 							<h3>Bảo mật</h3>
-							<p>
-								TODO
-							</p>
 						</div>
 					</div>
 				</div>
@@ -104,9 +95,6 @@
 						</div>
 						<div class="col-sm-9">
 							<h3>Đồng thuận</h3>
-							<p>
-								TODO
-							</p>
 						</div>
 					</div>
 				</div>
@@ -135,45 +123,67 @@
 		<div class="card card-signin my-5">
 			<div class="card-body">
 				<h5 class="card-title text-center">Nhập thêm thông tin</h5>
-				<form (ngSubmit)="onSignUp()" #signupForm="ngForm" class="form-signin">
+				<form (ngSubmit)="onSignUp()"  [formGroup]="registerForm" #signupForm="ngForm" class="form-signin">
 					<div class="form-label-group">
-						<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus
-						 [(ngModel)]="signUp.email" #id="ngModel" name="email">
-						<label for="inputEmail">Email</label>
+						<input type="text" formControlName="email" class="form-control" 
+							[(ngModel)]="signUp.email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+						<label>Email</label>
+						<div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+							<div *ngIf="f.email.errors.required">Email không nên để trống</div>
+							<div *ngIf="f.email.errors.email">Định dạng email không hợp lệ</div>
+						</div>
 					</div>
 
 					<div class="form-label-group">
-						<input type="text" id="inputPassword" class="form-control" placeholder="Fist name" required [(ngModel)]="signUp.firstName"
-						 #firstName="ngModel" name="firstName">
-						<label for="inputPassword">Tên</label>
+						<input type="text" formControlName="firstName" class="form-control"
+							[(ngModel)]="signUp.firstName" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+						<label>Tên</label>
+						<div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+							<div *ngIf="f.firstName.errors.required">Tên không hợp lệ</div>
+						</div>
 					</div>
 
 					<div class="form-label-group">
-						<input type="text" id="inputPassword" class="form-control" placeholder="Surname" required [(ngModel)]="signUp.surname"
-						 #surname="ngModel" name="surname">
+						<input type="text" formControlName="surname" class="form-control"
+							[(ngModel)]="signUp.surname" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
 						<label for="inputPassword">Họ</label>
+						<div *ngIf="submitted && f.surname.errors" class="invalid-feedback">
+							<div *ngIf="f.surname.errors.required">Họ không hợp lệ</div>
+						</div>
 					</div>
 
 					<div class="form-label-group">
-						<input type="text" id="inputPassword" class="form-control" placeholder="Phone number" required [(ngModel)]="signUp.phoneNum"
-						 #surname="ngModel" name="phoneNum">
-						<label for="inputPassword">Số điện thoại</label>
+						<input type="number" formControlName="phoneNum" class="form-control" 
+						[(ngModel)]="signUp.phoneNum" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+						<label>Số điện thoại</label>
+						<div *ngIf="submitted && f.phoneNum.errors" class="invalid-feedback">
+							<div *ngIf="f.phoneNum.errors.required">Số điện thoại không hợp lệ</div>
+						</div>
 					</div>
 					Địa chỉ
 					<div class="form-label-group">
-						<input type="text" id="inputPassword" class="form-control" placeholder="Country" required [(ngModel)]="signUp.country"
-						 #surname="ngModel" name="country">
-						<label for="inputPassword">Quốc gia</label>
+						<input type="text" formControlName="country" class="form-control" 
+						[(ngModel)]="signUp.country" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+						<label>Quốc gia</label>
+						<div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+							<div *ngIf="f.country.errors.required">Tên quốc gia không hợp lệ</div>
+						</div>
 					</div>
 					<div class="form-label-group">
-						<input type="text" id="inputPassword" class="form-control" placeholder="City" required [(ngModel)]="signUp.city"
-						 #surname="ngModel" name="city">
-						<label for="inputPassword">Thành phố/Tỉnh</label>
+						<input type="text" formControlName="city" class="form-control"
+						[(ngModel)]="signUp.city" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+						<label>Thành phố/Tỉnh</label>
+						<div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+							<div *ngIf="f.city.errors.required">Thành phố/tỉnh không hợp lệ</div>
+						</div>
 					</div>
 					<div class="form-label-group">
-						<input type="text" id="inputPassword" class="form-control" placeholder="Street" required [(ngModel)]="signUp.street"
-						 #surname="ngModel" name="street">
-						<label for="inputPassword">Phường/Huyện</label>
+						<input type="text" formControlName="street" class="form-control"
+						[(ngModel)]="signUp.street" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+						<label>Phường/Huyện</label>
+						<div *ngIf="submitted && f.street.errors" class="invalid-feedback">
+							<div *ngIf="f.street.errors.required">Phường/huyện không hợp lệ</div>
+						</div>
 					</div>
 
 					Ảnh đại diện
@@ -207,7 +217,7 @@
 					<li><a routerLink="/account">Tài khoản</a></li>
 					<li><a routerLink="/sell">Đăng sản phẩm</a></li>
 					<li><a routerLink="/balance">Nạp tiền</a></li>
-					<li><a routerLink="/dao">Dạo</a></li>
+					<!-- <li><a routerLink="/dao">Dạo</a></li> -->
 				</ul>
 			</div>
 		</div>
