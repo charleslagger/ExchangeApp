@@ -9,7 +9,7 @@ export class SellService {
   constructor(private httpClient: HttpClient) { }
 
   createProduct(name, productType, pricePerUnit, amount, imageBase64Encode,
-      description, cartStatus, currentUser) {
+      description, cartStatus, currentUser, ownerImage) {
     const transactions = {
       $class: 'uet.khoenguyen.exchange.Product',
       productId: 'PRO_' + (new Date()).getTime(),
@@ -21,7 +21,8 @@ export class SellService {
       description: description,
       cartStatus: cartStatus,
       productStatus: 'SELLING',
-      owner: currentUser
+      owner: currentUser,
+      ownerImage: ownerImage
     };
 
     return this.httpClient.post('https://localhost:3000/api/Product',

@@ -12,7 +12,7 @@ echo "Create Peer Admin card"
 cd ..
 echo "Starting project"
 cd HyperledgerComposers/
-echo "Replace name project"
+echo "Install and deply card"
 cd ExchangeApp/server/exchange
 composer archive create -t dir -n .
 composer network install -a exchange@0.0.2.bna -c PeerAdmin@hlfv1

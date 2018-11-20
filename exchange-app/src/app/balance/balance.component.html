@@ -1,8 +1,15 @@
-<form class = "balance-body" (ngSubmit)="increaseBalance()" #balanceForm="ngForm">
-  Chọn mệnh giá thẻ nạp:<br>
-  <input type="text" [(ngModel)]="amountMoney.accountBalance" #name="ngModel" name="amountMoney">
+<form class = "balance-body" [formGroup]="increaseBalanceForm" (ngSubmit)="increaseBalance()" #balanceForm="ngForm">
+  <p>Chọn mệnh giá thẻ nạp (VNĐ)</p>
+  <!-- <input type="number" [(ngModel)]="amountMoney.accountBalance" #name="ngModel" name="amountMoney"> -->
+  <div>
+      <input type="number" formControlName="accountBalance"
+      [(ngModel)]="amountMoney.accountBalance" [ngClass]="{ 'is-invalid': submitted && f.accountBalance.errors }">
+      <div *ngIf="submitted && f.accountBalance.errors" class="invalid-feedback">
+        <div *ngIf="f.accountBalance.errors.required">Số tiền khồng hợp lệ</div>
+      </div>
+    </div>
   <br>
-  <button type="submit" class="primary">
-    <span>Nạp tiền</span>
+  <button type = "submit" style="background-color: #6eba3c; color: white; border-radius: 0.5rem">
+    Nạp tiền
   </button>
 </form>

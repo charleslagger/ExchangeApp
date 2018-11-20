@@ -8,6 +8,7 @@ import { CartComponent } from '../cart/cart.component';
 import { SellComponent } from '../sell/sell.component';
 import { BalanceComponent } from '../balance/balance.component';
 import { HistoryComponent } from '../history/history.component';
+import { ErrorStateMatcher } from '@angular/material';
 
 const routes: Routes = [
   { path: '?loggedIn=true', redirectTo: '', pathMatch: 'full' },
@@ -15,7 +16,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'account', component: AccountComponent },
   { path: 'history', component: HistoryComponent },
-  { path: 'dao', component: DaoComponent },
+  // { path: 'dao', component: DaoComponent },
   { path: 'cart', component: CartComponent },
   { path: 'sell', component: SellComponent },
   { path: 'balance', component: BalanceComponent },

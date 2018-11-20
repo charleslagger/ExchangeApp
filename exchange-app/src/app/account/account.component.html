@@ -18,52 +18,42 @@
   <h2>Mặt hàng đã mua</h2>
   <mat-grid-list cols="4" rowHeight="1:1.4" gutterSize="10px">
     <mat-grid-tile *ngFor="let product of listProductBought | async">
-      <mat-card>
+      <mat-card class = "my-mat-card">
         <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
+          <img mat-card-avatar class = "avatar" src = "{{product.ownerImage}}">
           <mat-card-title>{{product.productName}}</mat-card-title>
           <mat-card-subtitle>{{product.productType}}</mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image src="{{product.imageBase64Encode}}" alt="">
-        <mat-card-content>
+        <img mat-card-image class ="image_pro" src="{{product.imageBase64Encode}}" alt="">
+        <mat-card-content class = "my-mat-card-content">
           Mô tả: {{product.description}} <br>
           Giá: {{product.pricePerUnit}} <br>
           Số lượng: {{product.amount}}
         </mat-card-content>
         <mat-card-actions>
-          <button mat-button (click)="buyProduct(product.productId, product.owner)">Thanh toán</button>
+          <button style="background-color: #6eba3c; color: white;" mat-button (click)="buyProduct(product.productId, product.owner)">Thanh toán</button>
         </mat-card-actions>
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
 
   <h2>Mặt hàng đang rao bán</h2>
-  <!-- <table>
-  <tr *ngFor="let product of listProductSell | async">
-    <td>{{product.productName}}</td>
-    <td>{{product.productType}}</td>
-    <td>{{product.pricePerUnit}}</td>
-    <td>{{product.amount}}</td>
-    <td>{{product.description}}</td>
-    <td><img height="50px" width="50px" src="{{product.imageBase64Encode}}" alt=""></td>
-  </tr>
-</table> -->
   <mat-grid-list cols="4" rowHeight="1:1.4" gutterSize="10px">
     <mat-grid-tile *ngFor="let product of listProductSell | async">
-      <mat-card>
+      <mat-card class = "my-mat-card">
         <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
+          <img class = "avatar" mat-card-avatar class = "avatar" src = "{{product.ownerImage}}">
           <mat-card-title>{{product.productName}}</mat-card-title>
           <mat-card-subtitle>{{product.productType}}</mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image src="{{product.imageBase64Encode}}" alt="">
-        <mat-card-content>
+        <img mat-card-image class ="image_pro" src="{{product.imageBase64Encode}}" alt="">
+        <mat-card-content class = "my-mat-card-content">
           Mô tả: {{product.description}} <br>
           Giá: {{product.pricePerUnit}} <br>
           Số lượng: {{product.amount}}
         </mat-card-content>
         <mat-card-actions>
-          <button mat-button (click)="buyProduct(product.productId, product.owner)">Thanh toán</button>
+          <button style="background-color: #6eba3c; color: white;" mat-button (click)="buyProduct(product.productId, product.owner)">Thanh toán</button>
         </mat-card-actions>
       </mat-card>
     </mat-grid-tile>

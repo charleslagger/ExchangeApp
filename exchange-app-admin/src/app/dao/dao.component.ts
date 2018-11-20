@@ -20,10 +20,14 @@ export class DaoComponent implements OnInit {
 
   image;
   constructor(private daoService: DaoService) { }
-
+  private wallet;
   ngOnInit() {
+    this.wallet = this.getWallet();
   }
 
+  getWallet(){
+    this.daoService.getWalletData();
+  }
   changeListener($event): void {
     this.readThis($event.target);
   }

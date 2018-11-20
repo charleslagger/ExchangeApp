@@ -11,3 +11,34 @@
 {
   color: white;
 }
+
+.sell-body input{
+  color: white;
+}
+
+.sell-form{
+  position: relative;;
+  padding-left: 40%;
+  padding-right: 45%;
+}
+
+::ng-deep .mat-form-field-underline, ::ng-deep .mat-form-field-ripple {
+  background-color: white !important;
+  color: white !important
+}
+
+::ng-deep .mat-form-field-empty.mat-form-field-label {
+    color: white;
+}
+
+::ng-deep .mat-form-field-infix {
+  color: white;
+}
+
+.placeholder {
+  color: white;
+}
+
+.mat-focused .placeholder {
+  color: rgb(11, 210, 236);
+}
