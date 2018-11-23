@@ -1,0 +1,21 @@
+<mat-grid-list class = "home-body" cols="4" rowHeight="1:1.4" gutterSize="10px"  >
+  <mat-grid-tile
+      *ngFor="let product of listProducts | async">
+      <mat-card class = "my-mat-card">
+        <mat-card-header>
+          <img mat-card-avatar class = "avatar" src = "{{product.ownerImage}}">
+          <mat-card-title>{{product.productName}}</mat-card-title>
+          <mat-card-subtitle>{{product.productType}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image class = "image_pro" src="{{product.imageBase64Encode}}" alt="Photo of a Shiba Inu">
+        <mat-card-content class="my-mat-card-content">
+          Mô tả: {{product.description}} <br>
+          Giá: {{product.pricePerUnit}} VNĐ<br>
+          Số lượng: {{product.amount}}
+        </mat-card-content>
+        <mat-card-actions>
+          <button style="background-color: #6eba3c; color: white;" mat-button (click)="buyProduct(product.productId, product.owner)">Thanh toán</button>
+        </mat-card-actions>
+      </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

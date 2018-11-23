@@ -1,0 +1,226 @@
+<section *ngIf="!authenticated">
+	<nav class="navbar navbar-fixed-top navbar-no-bg" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html">Bootstrap Navbar Menu Template</a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="top-navbar-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">Trang chủ</a></li>
+					<li><a href="#">Lịch sử giao dịch</a></li>
+					<li><a href="#">Giỏ hàng</a></li>
+					<li><a href="#">Tài khoản</a></li>
+					<li><a href="#">Đăng sản phẩm</a></li>
+					<li><a href="#">Nạp tiền</a></li>
+					<li><a class="btn btn-link-3" (click)="openLoginPopup()">Đăng nhập</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Top content -->
+	<div class="top-content">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 text wow fadeInLeft">
+					<h1>Mua bán hàng tiện lợi hơn bao giờ hết</h1>
+					<div class="description">
+						<p class="medium-paragraph">
+							Tin cậy, xác thực, dễ sử dụng
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Features -->
+	<div class="features-container section-container">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-sm-12 features section-description wow fadeIn">
+					<h2>Ứng dụng blockchain vào thương mại điện tử</h2>
+					<div class="divider-1">
+						<div class="line"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-6 features-box wow fadeInLeft">
+					<div class="row">
+						<div class="col-sm-3 features-box-icon">
+							<i class="fa fa-twitter"></i>
+						</div>
+						<div class="col-sm-9">
+							<h3>Minh bạch</h3>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 features-box wow fadeInLeft">
+					<div class="row">
+						<div class="col-sm-3 features-box-icon">
+							<i class="fa fa-instagram"></i>
+						</div>
+						<div class="col-sm-9">
+							<h3>Ngang hàng, phi tập trung</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-6 features-box wow fadeInLeft">
+					<div class="row">
+						<div class="col-sm-3 features-box-icon">
+							<i class="fa fa-magic"></i>
+						</div>
+						<div class="col-sm-9">
+							<h3>Bảo mật</h3>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 features-box wow fadeInLeft">
+					<div class="row">
+						<div class="col-sm-3 features-box-icon">
+							<i class="fa fa-cloud"></i>
+						</div>
+						<div class="col-sm-9">
+							<h3>Đồng thuận</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 footer-copyright">
+					&copy; Phát triển sử dụng mã nguồn từ <a href="http://azmind.com">AZMIND</a>
+				</div>
+			</div>
+		</div>
+	</footer>
+</section>
+
+
+
+
+
+<section *ngIf="authenticated && !loggedIn" class = "align-card">
+		<div class="card card-signin my-5">
+			<div class="card-body">
+				<h5 class="card-title text-center">Nhập thêm thông tin</h5>
+				<form (ngSubmit)="onSignUp()"  [formGroup]="registerForm" #signupForm="ngForm" class="form-signin">
+					<div class="form-label-group">
+						<input type="text" formControlName="email" class="form-control" 
+							[(ngModel)]="signUp.email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+						<label>Email</label>
+						<div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+							<div *ngIf="f.email.errors.required">Email không nên để trống</div>
+							<div *ngIf="f.email.errors.email">Định dạng email không hợp lệ</div>
+						</div>
+					</div>
+
+					<div class="form-label-group">
+						<input type="text" formControlName="firstName" class="form-control"
+							[(ngModel)]="signUp.firstName" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+						<label>Tên</label>
+						<div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+							<div *ngIf="f.firstName.errors.required">Tên không hợp lệ</div>
+						</div>
+					</div>
+
+					<div class="form-label-group">
+						<input type="text" formControlName="surname" class="form-control"
+							[(ngModel)]="signUp.surname" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+						<label for="inputPassword">Họ</label>
+						<div *ngIf="submitted && f.surname.errors" class="invalid-feedback">
+							<div *ngIf="f.surname.errors.required">Họ không hợp lệ</div>
+						</div>
+					</div>
+
+					<div class="form-label-group">
+						<input type="number" formControlName="phoneNum" class="form-control" 
+						[(ngModel)]="signUp.phoneNum" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+						<label>Số điện thoại</label>
+						<div *ngIf="submitted && f.phoneNum.errors" class="invalid-feedback">
+							<div *ngIf="f.phoneNum.errors.required">Số điện thoại không hợp lệ</div>
+						</div>
+					</div>
+					Địa chỉ
+					<div class="form-label-group">
+						<input type="text" formControlName="country" class="form-control" 
+						[(ngModel)]="signUp.country" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+						<label>Quốc gia</label>
+						<div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+							<div *ngIf="f.country.errors.required">Tên quốc gia không hợp lệ</div>
+						</div>
+					</div>
+					<div class="form-label-group">
+						<input type="text" formControlName="city" class="form-control"
+						[(ngModel)]="signUp.city" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+						<label>Thành phố/Tỉnh</label>
+						<div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+							<div *ngIf="f.city.errors.required">Thành phố/tỉnh không hợp lệ</div>
+						</div>
+					</div>
+					<div class="form-label-group">
+						<input type="text" formControlName="street" class="form-control"
+						[(ngModel)]="signUp.street" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+						<label>Phường/Huyện</label>
+						<div *ngIf="submitted && f.street.errors" class="invalid-feedback">
+							<div *ngIf="f.street.errors.required">Phường/huyện không hợp lệ</div>
+						</div>
+					</div>
+
+					Ảnh đại diện
+					<input type="file" accept="image/*" (change)="changeListener($event)">
+					<img height="60px" width="80px" src="{{imageEncode}}" alt="">
+					<p></p>
+					<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Đăng nhập</button>
+				</form>
+			</div>
+		</div>
+</section>
+
+<section *ngIf="authenticated && loggedIn">
+	<nav class="navbar navbar-fixed-top navbar-no-bg" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html">Bootstrap Navbar Menu Template</a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="top-navbar-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a routerLink="/home">Trang chủ</a></li>
+					<li><a routerLink="/history">Lịch sử giao dịch</a></li>
+					<li><a routerLink="/cart">Giỏ hàng</a></li>
+					<li><a routerLink="/account">Tài khoản</a></li>
+					<li><a routerLink="/sell">Đăng sản phẩm</a></li>
+					<li><a routerLink="/balance">Nạp tiền</a></li>
+					<!-- <li><a routerLink="/dao">Dạo</a></li> -->
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<router-outlet></router-outlet>
+</section>
