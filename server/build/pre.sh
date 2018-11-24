@@ -1,7 +1,7 @@
 #!/bin/bash
 cd
 echo "Remove previous version server"
-rm -R .composer/
+sudo rm -R .composer/
 cd fabric-dev-servers/
 export FABRIC_VERSION=hlfv12
 sudo ./teardownFabric.sh
