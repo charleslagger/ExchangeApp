@@ -25,7 +25,7 @@ export class SellService {
       ownerImage: ownerImage
     };
 
-    return this.httpClient.post('https://35.240.232.211:3000/api/Product',
+    return this.httpClient.post('https://exchangeapp.tk:3000/api/Product',
       transactions, {withCredentials: true}).toPromise();
   }
 }

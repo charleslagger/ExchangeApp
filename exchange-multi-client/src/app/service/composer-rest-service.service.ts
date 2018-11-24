@@ -9,7 +9,7 @@ export class ComposerRestService {
   constructor(private httpClient: HttpClient) { }
 
   checkWallet() {
-    return this.httpClient.get('https://35.240.232.211:3000/api/wallet', {withCredentials: true}).toPromise();
+    return this.httpClient.get('https://exchangeapp.tk:3000/api/wallet', {withCredentials: true}).toPromise();
   }
 
   signUp(data, imageEncode) {
@@ -31,7 +31,7 @@ export class ComposerRestService {
       coverPhoto: imageEncode
     };
 
-    return this.httpClient.post('https://35.240.232.211:3001/api/Collector',
+    return this.httpClient.post('https://exchangeapp.tk:3001/api/Collector',
         collector, {responseType: 'blob'}).toPromise()
       .then(() => {
         const identity = {
@@ -40,7 +40,7 @@ export class ComposerRestService {
           options: {}
         };
 
-        return this.httpClient.post('https://35.240.232.211:3001/api/system/identities/issue', identity, {responseType: 'blob'}).toPromise();
+        return this.httpClient.post('https://exchangeapp.tk:3001/api/system/identities/issue', identity, {responseType: 'blob'}).toPromise();
       })
       .then((cardData) => {
       console.log('CARD-DATA', cardData);
@@ -51,7 +51,7 @@ export class ComposerRestService {
 
         const headers = new HttpHeaders();
         headers.set('Content-Type', 'multipart/form-data');
-        return this.httpClient.post('https://35.240.232.211:3000/api/wallet/import', formData, {
+        return this.httpClient.post('https://exchangeapp.tk:3000/api/wallet/import', formData, {
           withCredentials: true,
           headers
         }).toPromise();

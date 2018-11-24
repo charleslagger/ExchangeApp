@@ -12,7 +12,7 @@ export class CartService {
     const httpParams = new HttpParams()
       .set('ownerId', currentUserId)
       .set('productStatus', 'SELLING');
-    return this.httpClient.get('https://35.240.232.211:3000/api/queries/listProductsInMyCart',
+    return this.httpClient.get('https://exchangeapp.tk:3000/api/queries/listProductsInMyCart',
       { params: httpParams, withCredentials: true }).toPromise();
   }
 
@@ -35,12 +35,12 @@ export class CartService {
       image: productImage
     };
 
-    return this.httpClient.post('https://35.240.232.211:3001/api/Trade',
+    return this.httpClient.post('https://exchangeapp.tk:3001/api/Trade',
       transactionDetails, { withCredentials: true }).toPromise();
   }
 
   getProductNameById(productId) {
-    return this.httpClient.get('https://35.240.232.211:3000/api/Product/' + productId, { withCredentials: true }).toPromise()
+    return this.httpClient.get('https://exchangeapp.tk:3000/api/Product/' + productId, { withCredentials: true }).toPromise()
       .then((product) => {
         // console.log('=>product name: ' + ((((JSON.stringify(product)).split(':\"'))[3]).split('\"'))[0]);
         return ((((JSON.stringify(product)).split(':\"'))[3]).split('\"'))[0];
@@ -48,7 +48,7 @@ export class CartService {
   }
 
   getProductImageById(productId) {
-    return this.httpClient.get('https://35.240.232.211:3000/api/Product/' + productId, { withCredentials: true }).toPromise()
+    return this.httpClient.get('https://exchangeapp.tk:3000/api/Product/' + productId, { withCredentials: true }).toPromise()
       .then((product) => {
         // console.log('=>product image: ' + ((((JSON.stringify(product)).split(':\"'))[5]).split('\"'))[0]);
         return ((((JSON.stringify(product)).split(':\"'))[5]).split('\"'))[0];

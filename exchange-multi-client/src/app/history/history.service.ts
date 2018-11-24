@@ -9,7 +9,7 @@ export class HistoryService {
   constructor(private httpClient: HttpClient) { }
 
   getAllTransactions() {
-    return this.httpClient.get('https://35.240.232.211:3000/api/Trade', { withCredentials: true }).toPromise()
+    return this.httpClient.get('https://exchangeapp.tk:3000/api/Trade', { withCredentials: true }).toPromise()
       .then((result) => {
         console.log('Transactions: ' + JSON.stringify(result));
         return result;
@@ -17,10 +17,10 @@ export class HistoryService {
   }
 
   getProductByProductId(productId) {
-    return this.httpClient.get('https://35.240.232.211:3000/api/Product/' + productId, { withCredentials: true }).toPromise();
+    return this.httpClient.get('https://exchangeapp.tk:3000/api/Product/' + productId, { withCredentials: true }).toPromise();
   }
 
   getCollectorById(userId) {
-    return this.httpClient.get('https://35.240.232.211:3001/api/Collector/' + userId, { withCredentials: true }).toPromise();
+    return this.httpClient.get('https://exchangeapp.tk:3001/api/Collector/' + userId, { withCredentials: true }).toPromise();
   }
 }

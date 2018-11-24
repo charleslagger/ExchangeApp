@@ -14,7 +14,7 @@ export class BalanceService {
       amountMoney: amountMoney,
       owner: currentUser
     };
-    return this.httpClient.post('https://35.240.232.211:3001/api/IncreaseBalance',
+    return this.httpClient.post('https://exchangeapp.tk:3001/api/IncreaseBalance',
       transaction, {withCredentials: true}).toPromise();
   }
 }
