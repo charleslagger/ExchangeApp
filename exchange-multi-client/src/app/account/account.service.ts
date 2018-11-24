@@ -12,21 +12,21 @@ export class AccountService {
     const httpParams = new HttpParams()
       .set('ownerId', currentUser);
 
-    return this.httpClient.get('https://localhost:3000/api/queries/myProductBought',
+    return this.httpClient.get('https://35.240.232.211:3000/api/queries/myProductBought',
       { params: httpParams, withCredentials: true }).toPromise();
   }
 
   getMyProductSell(currentUser) {
     const httpParams = new HttpParams()
       .set('ownerId', currentUser);
-    return this.httpClient.get('https://localhost:3001/api/queries/myProductSelling',
+    return this.httpClient.get('https://35.240.232.211:3001/api/queries/myProductSelling',
       { params: httpParams, withCredentials: true }).toPromise();
   }
 
   getCurrentUser() {
-    return this.httpClient.get('https://localhost:3000/api/system/ping', { withCredentials: true }).toPromise()
+    return this.httpClient.get('https://35.240.232.211:3000/api/system/ping', { withCredentials: true }).toPromise()
       .then((data) => {
-        return this.httpClient.get('https://localhost:3000/api/Collector/' +
+        return this.httpClient.get('https://35.240.232.211:3000/api/Collector/' +
           (data['participant'].split('#'))[1], { withCredentials: true }).toPromise()
           .then((result) => {
             return result;
@@ -35,9 +35,9 @@ export class AccountService {
   }
 
   getCurrentUserPhoto() {
-    return this.httpClient.get('https://localhost:3000/api/system/ping', { withCredentials: true }).toPromise()
+    return this.httpClient.get('https://35.240.232.211:3000/api/system/ping', { withCredentials: true }).toPromise()
       .then((data) => {
-        return this.httpClient.get('https://localhost:3000/api/Collector/' +
+        return this.httpClient.get('https://35.240.232.211:3000/api/Collector/' +
           (data['participant'].split('#'))[1], { withCredentials: true }).toPromise()
           .then((result) => {
             return result['coverPhoto'];
@@ -46,14 +46,14 @@ export class AccountService {
   }
 
   getCurrentUserId() {
-    return this.httpClient.get('https://localhost:3000/api/system/ping', { withCredentials: true }).toPromise()
+    return this.httpClient.get('https://35.240.232.211:3000/api/system/ping', { withCredentials: true }).toPromise()
       .then((data) => {
         // console.log('==>userId: ' + 'resource:' + data['participant']);
         return ('resource:' + data['participant']);
       });
   }
   getUserNameById(userId) {
-    return this.httpClient.get('https://localhost:3001/api/Collector/' + userId, { withCredentials: true }).toPromise()
+    return this.httpClient.get('https://35.240.232.211:3001/api/Collector/' + userId, { withCredentials: true }).toPromise()
       .then((user) => {
         const lastName = (((JSON.stringify(user).split(':\"'))[4]).split('\"'))[0];
         const firstName = (((JSON.stringify(user).split(':\"'))[3]).split('\"'))[0];

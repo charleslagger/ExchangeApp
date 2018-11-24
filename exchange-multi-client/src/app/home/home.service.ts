@@ -12,7 +12,7 @@ export class HomeService {
     console.log('==>>currentUserId: ' + currentUserId);
     const httpParams = new HttpParams()
           .set('currentUserId', currentUserId);
-    return this.httpClient.get('https://localhost:3000/api/queries/availableProducts',
+    return this.httpClient.get('https://35.240.232.211:3000/api/queries/availableProducts',
       {params: httpParams, withCredentials: true}).toPromise();
   }
 
@@ -22,7 +22,7 @@ export class HomeService {
       product: productId,
       newOwnerTemp: buyerId
     };
-    return this.httpClient.post('https://localhost:3001/api/MoveProToCart',
+    return this.httpClient.post('https://35.240.232.211:3001/api/MoveProToCart',
       transactionDetails, {withCredentials: true}).toPromise();
   }
 
@@ -36,7 +36,7 @@ export class HomeService {
   //     // newOwner: currentUser
   //   };
 
-  //   return this.httpClient.post('https://localhost:3000/api/Trade',
+  //   return this.httpClient.post('https://35.240.232.211:3000/api/Trade',
   //     transactionDetails, {withCredentials: true}).toPromise();
   // }
 }
