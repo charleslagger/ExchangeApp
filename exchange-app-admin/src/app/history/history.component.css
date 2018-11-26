@@ -8,3 +8,19 @@
   background: gray url('/assets/test/img/backgrounds/1.jpg'); 
   /* background: gray url('https://wpblink.com/sites/default/files/wallpaper/abstract/65846/dark-grey-wallpapers-hd-65846-5776352.jpg'); */
 }
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #b6b8a7;
+}

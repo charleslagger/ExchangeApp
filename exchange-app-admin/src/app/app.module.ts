@@ -8,15 +8,11 @@ import { AppRoutingModule } from './routing/app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { AccountComponent } from './account/account.component';
 import { MessageComponent } from './message/message.component';
-import { CartComponent } from './cart/cart.component';
 import { DaoComponent } from './dao/dao.component';
 import { LoginComponent } from './login/login.component';
-import { SellComponent } from './sell/sell.component';
-import { BalanceComponent } from './balance/balance.component';
 import { HomeService } from './home/home.service';
 import { AccountService } from './account/account.service';
 import { ComposerRestService } from './service/composer-rest-service.service';
-import { SellService } from './sell/sell.service';
 import { HistoryComponent } from './history/history.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -33,6 +29,7 @@ import {
   MatNativeDateModule,
   MatSelectModule
 } from '@angular/material';
+import { HistoryAccComponent } from './history-acc/history-acc.component';
 
 @NgModule({
   declarations: [
@@ -40,12 +37,10 @@ import {
     HomeComponent,
     AccountComponent,
     MessageComponent,
-    CartComponent,
     DaoComponent,
     LoginComponent,
-    SellComponent,
-    BalanceComponent,
-    HistoryComponent
+    HistoryComponent,
+    HistoryAccComponent
   ],
   entryComponents: [LoginComponent],
   imports: [
@@ -70,8 +65,7 @@ import {
   providers: [
     HomeService,
     AccountService,
-    ComposerRestService,
-    SellService
+    ComposerRestService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SellComponent } from './sell.component';
+import { HistoryAccComponent } from './history-acc.component';
 
-describe('SellComponent', () => {
-  let component: SellComponent;
-  let fixture: ComponentFixture<SellComponent>;
+describe('HistoryAccComponent', () => {
+  let component: HistoryAccComponent;
+  let fixture: ComponentFixture<HistoryAccComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SellComponent ]
+      declarations: [ HistoryAccComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SellComponent);
+    fixture = TestBed.createComponent(HistoryAccComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

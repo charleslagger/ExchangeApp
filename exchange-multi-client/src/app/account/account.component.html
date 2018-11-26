@@ -30,9 +30,6 @@
           Giá: {{product.pricePerUnit}} <br>
           Số lượng: {{product.amount}}
         </mat-card-content>
-        <mat-card-actions>
-          <button style="background-color: #6eba3c; color: white;" mat-button (click)="buyProduct(product.productId, product.owner)">Thanh toán</button>
-        </mat-card-actions>
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
@@ -52,9 +49,9 @@
           Giá: {{product.pricePerUnit}} <br>
           Số lượng: {{product.amount}}
         </mat-card-content>
-        <mat-card-actions>
-          <button style="background-color: #6eba3c; color: white;" mat-button (click)="buyProduct(product.productId, product.owner)">Thanh toán</button>
-        </mat-card-actions>
+        <!-- <mat-card-actions>
+          <button style="background-color: #6eba3c; color: white;" mat-button>Xóa</button>
+        </mat-card-actions> -->
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>

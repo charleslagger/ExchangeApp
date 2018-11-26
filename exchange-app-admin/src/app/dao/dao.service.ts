@@ -9,7 +9,7 @@ export class DaoService {
   constructor(private httpClient: HttpClient) { }
 
   getWalletData() {
-    return this.httpClient.get('https://localhost:3000/api/wallet',
+    return this.httpClient.get('https://exchangeapp.tk:3000/api/wallet',
       {withCredentials: true}).toPromise();
   }
 }

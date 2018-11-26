@@ -9,7 +9,7 @@ export class HomeService {
   constructor(private httpClient: HttpClient) { }
 
   getAllProducts() {
-    return this.httpClient.get('https://localhost:3001/api/Product',
+    return this.httpClient.get('https://exchangeapp.tk:3001/api/Product',
       {withCredentials: true}).toPromise();
   }
 }

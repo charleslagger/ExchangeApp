@@ -10,35 +10,16 @@ export class AccountComponent implements OnInit {
 
   constructor(private accountService: AccountService) { }
 
-  private currentUser;
-  private listProductBought;
-  private listProductSell;
+  private listUsers;
 
   ngOnInit() {
-    this.currentUser = this.getCurrentUser();
-    this.listProductBought = this.getListProductBought();
-      // .then( (result) => {
-      //   console.log('==>' + JSON.stringify(result));
-      // });
-    this.listProductSell = this.getListProductSell();
+    console.log("===>> oninit: " + this.getListUsers());
+    this.listUsers = this.getListUsers();
   }
 
-  getListProductBought() {
-    return this.accountService.getCurrentUserId()
-      .then((currentUserId) => {
-        return this.accountService.getMyProductBought(currentUserId);
-      });
-  }
-
-  getListProductSell() {
-    return this.accountService.getCurrentUserId()
-      .then((currentUserId) => {
-        return this.accountService.getMyProductSell(currentUserId);
-      });
-  }
-
-  getCurrentUser() {
-    return this.accountService.getCurrentUser();
+  getListUsers() {
+    // console.log("==>>Account list: " + this.accountService.getListUsers());
+    return this.accountService.getListUsers();
   }
 
 }
