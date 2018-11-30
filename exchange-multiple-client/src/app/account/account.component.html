@@ -46,12 +46,13 @@
         <img mat-card-image class ="image_pro" src="{{product.imageBase64Encode}}" alt="">
         <mat-card-content class = "my-mat-card-content">
           Mô tả: {{product.description}} <br>
-          Giá: {{product.pricePerUnit}} <br>
+          Giá: {{product.pricePerUnit}} VNĐ<br>
           Số lượng: {{product.amount}}
         </mat-card-content>
-        <!-- <mat-card-actions>
-          <button style="background-color: #6eba3c; color: white;" mat-button>Xóa</button>
-        </mat-card-actions> -->
+        <mat-card-actions>
+          <button style="background-color: #6eba3c; color: white;" mat-button (click)="modifyProductDialog(product)">Sửa</button>
+          <button style="background-color: #6eba3c; color: white;" mat-button (click)="deleteProductById(product.productId)">Xóa</button>
+        </mat-card-actions>
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>

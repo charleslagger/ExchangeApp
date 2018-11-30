@@ -164,7 +164,7 @@ function setup() {
         collector_4.coverPhoto = cover_photo_4;
         collectors.push(collector_4);
 
-        var collector_5 = factory.newResource(NS, 'Collector', 'trang');
+        var collector_5 = factory.newResource(NS, 'Collector', 'yen@gmail.com');
         collector_5.accountBalance = 100000000;
         collector_5.firstName = 'Yến';
         collector_5.lastName = 'Nguyễn';

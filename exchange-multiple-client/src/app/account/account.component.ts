@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from './account.service';
+import { ModifyProductComponent } from '../modify-product/modify-product.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-account',
@@ -8,7 +10,8 @@ import { AccountService } from './account.service';
 })
 export class AccountComponent implements OnInit {
 
-  constructor(private accountService: AccountService) { }
+  constructor(private accountService: AccountService,
+    public dialog: MatDialog) { }
 
   private currentUser;
   private listProductBought;
@@ -39,6 +42,18 @@ export class AccountComponent implements OnInit {
 
   getCurrentUser() {
     return this.accountService.getCurrentUser();
+  }
+
+  deleteProductById(productId) {
+    return this.accountService.deleteProductById(productId).then((result) => {
+      console.log("==>>Delete product success.");
+    });
+  }
+
+  modifyProductDialog(product) {
+    const dialogRef = this.dialog.open(ModifyProductComponent, {
+      data: product
+    });
   }
 
 }

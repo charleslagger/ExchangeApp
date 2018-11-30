@@ -2,7 +2,7 @@
   <h2>Tạo thông tin mặt hàng muốn bán</h2>
   <form class = "sell-form" (ngSubmit)="createProduct()" #createProForm="ngForm">
     <mat-form-field>
-      <mat-placeholder class="placeholder">Tên sản phẩm</mat-placeholder>
+      <mat-placeholder>Tên sản phẩm</mat-placeholder>
       <input type="text" [(ngModel)]="productObject.name" matInput [formControl]="nameFormControl"
              [errorStateMatcher]="matcher">
       <mat-error *ngIf="nameFormControl.hasError('required')">
@@ -12,7 +12,7 @@
     <br>
     <!-- <input type="text" [(ngModel)]="productObject.productType" #name="ngModel" name="productType"> -->
     <mat-form-field>
-      <mat-placeholder class="placeholder">Chọn mặt hàng</mat-placeholder>
+      <mat-placeholder>Chọn mặt hàng</mat-placeholder>
       <mat-select [(ngModel)]="productObject.productType" [formControl]="productTypeControl" required>
         <mat-option>--</mat-option>
         <mat-option *ngFor="let proType of proTypes" [value]="proType">
@@ -21,10 +21,9 @@
       </mat-select>
       <mat-error *ngIf="productTypeControl.hasError('required')">Vui lòng chọn mặt hàng tương ứng</mat-error>
     </mat-form-field>
-    <!-- <input type="text" [(ngModel)]="productObject.pricePerUnit" #name="ngModel" name="pricePerUnit"> -->
     <br>
     <mat-form-field>
-      <mat-placeholder class="placeholder">Giá một đơn vị (VNĐ)</mat-placeholder>
+      <mat-placeholder>Giá một đơn vị (VNĐ)</mat-placeholder>
       <input type="text" [(ngModel)]="productObject.pricePerUnit" matInput [formControl]="pricePerUnitFormControl"
              [errorStateMatcher]="matcher">
       <mat-error *ngIf="pricePerUnitFormControl.hasError('required')">
@@ -33,7 +32,7 @@
     </mat-form-field>
     <br>
     <mat-form-field>
-      <mat-placeholder class="placeholder">Số lượng</mat-placeholder>
+      <mat-placeholder>Số lượng</mat-placeholder>
       <input type="number" [(ngModel)]="productObject.amount" matInput [formControl]="amountFormControl"
              [errorStateMatcher]="matcher">
       <mat-error *ngIf="amountFormControl.hasError('required')">
@@ -46,7 +45,7 @@
     <img height="100px" width="125px" src="{{image}}" alt="">
     <br>
     <mat-form-field>
-      <mat-placeholder class="placeholder">Mô tả mặt hàng</mat-placeholder>
+      <mat-placeholder>Mô tả mặt hàng</mat-placeholder>
       <input type="text" [(ngModel)]="productObject.description" matInput [formControl]="descriptionFormControl"
              [errorStateMatcher]="matcher">
       <mat-error *ngIf="descriptionFormControl.hasError('required')">

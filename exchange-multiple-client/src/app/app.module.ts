@@ -33,6 +33,7 @@ import {
   MatNativeDateModule,
   MatSelectModule
 } from '@angular/material';
+import { ModifyProductComponent } from './modify-product/modify-product.component';
 
 @NgModule({
   declarations: [
@@ -45,9 +46,10 @@ import {
     LoginComponent,
     SellComponent,
     BalanceComponent,
-    HistoryComponent
+    HistoryComponent,
+    ModifyProductComponent
   ],
-  entryComponents: [LoginComponent],
+  entryComponents: [LoginComponent, ModifyProductComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -61,4 +61,14 @@ export class AccountService {
         return firstName + ' ' + lastName;
       });
   }
+
+  deleteProductById(productId) {
+    return this.httpClient.delete('https://localhost:3001/api/Product/' + productId,
+      {withCredentials: true }).toPromise();
+  }
+
+  modProduct(product){
+    return this.httpClient.put('https://localhost:3001/api/Product/' + product.productId, product
+      ,{withCredentials: true }).toPromise();
+  }
 }
