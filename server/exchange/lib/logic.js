@@ -34,6 +34,7 @@ function tradeProduct(tx) {
   var totalPrice = tx.product.amount * tx.product.pricePerUnit;
   if (tx.newOwner.accountBalance >= totalPrice) {
     tx.newOwner.accountBalance -= totalPrice;
+    tx.oldOwner.accountBalance += totalPrice;
     return getAssetRegistry(NS + '.Product')
       .then(function (assetRegistry) {
         // persist the state of the commodity
@@ -41,7 +42,10 @@ function tradeProduct(tx) {
           .then(() => {
             return getParticipantRegistry(NS + '.Collector')
               .then(function (paricipantRegistry) {
-                return paricipantRegistry.update(tx.newOwner);
+                return paricipantRegistry.update(tx.oldOwner).then(()=>
+                {
+                  return paricipantRegistry.update(tx.newOwner);
+                })
               })
           });
       });
@@ -164,7 +168,7 @@ function setup() {
         collector_4.coverPhoto = cover_photo_4;
         collectors.push(collector_4);
 
-        var collector_5 = factory.newResource(NS, 'Collector', 'trang');
+        var collector_5 = factory.newResource(NS, 'Collector', 'yen@gmail.com');
         collector_5.accountBalance = 100000000;
         collector_5.firstName = 'Yến';
         collector_5.lastName = 'Nguyễn';
