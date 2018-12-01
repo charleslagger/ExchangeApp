@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from './account.service';
+import { HistoryAccComponent } from '../history-acc/history-acc.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-account',
@@ -8,7 +10,8 @@ import { AccountService } from './account.service';
 })
 export class AccountComponent implements OnInit {
 
-  constructor(private accountService: AccountService) { }
+  constructor(private accountService: AccountService,
+    public dialog: MatDialog) { }
 
   private listUsers;
 
@@ -18,8 +21,13 @@ export class AccountComponent implements OnInit {
   }
 
   getListUsers() {
-    // console.log("==>>Account list: " + this.accountService.getListUsers());
     return this.accountService.getListUsers();
+  }
+
+  showHistory(user) {
+    this.dialog.open(HistoryAccComponent, {
+      data: user
+    });
   }
 
 }

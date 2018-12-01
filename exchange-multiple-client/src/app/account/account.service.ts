@@ -19,7 +19,7 @@ export class AccountService {
   getMyProductSell(currentUser) {
     const httpParams = new HttpParams()
       .set('ownerId', currentUser);
-    return this.httpClient.get('https://localhost:3001/api/queries/myProductSelling',
+    return this.httpClient.get('https://localhost:3000/api/queries/myProductSelling',
       { params: httpParams, withCredentials: true }).toPromise();
   }
 
@@ -52,6 +52,7 @@ export class AccountService {
         return ('resource:' + data['participant']);
       });
   }
+  
   getUserNameById(userId) {
     return this.httpClient.get('https://localhost:3001/api/Collector/' + userId, { withCredentials: true }).toPromise()
       .then((user) => {
@@ -63,12 +64,12 @@ export class AccountService {
   }
 
   deleteProductById(productId) {
-    return this.httpClient.delete('https://localhost:3001/api/Product/' + productId,
+    return this.httpClient.delete('https://localhost:3000/api/Product/' + productId,
       {withCredentials: true }).toPromise();
   }
 
   modProduct(product){
-    return this.httpClient.put('https://localhost:3001/api/Product/' + product.productId, product
+    return this.httpClient.put('https://localhost:3000/api/Product/' + product.productId, product
       ,{withCredentials: true }).toPromise();
   }
 }

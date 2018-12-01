@@ -1,17 +1,18 @@
-<div style="background: darkgray">
 <h3>Sửa mặt hàng</h3>
 <form (ngSubmit)="modProduct()" #modProForm="ngForm">
   <mat-form-field>
     <mat-placeholder>Số lượng</mat-placeholder>
-    <input type="number" [(ngModel)]="productObject.amount" matInput [formControl]="amountFormControl" [errorStateMatcher]="matcher">
+    <input type="number" [(ngModel)]="productObject.amount" matInput [formControl]="amountFormControl"
+      [errorStateMatcher]="matcher">
     <mat-error *ngIf="amountFormControl.hasError('required')">
       Số lượng không hợp lệ
     </mat-error>
   </mat-form-field>
   <br>
   <mat-form-field>
-    <mat-placeholder  >Giá</mat-placeholder>
-    <input type="number" [(ngModel)]="productObject.pricePerUnit" matInput [formControl]="pricePerUnitFormControl" [errorStateMatcher]="matcher">
+    <mat-placeholder>Giá</mat-placeholder>
+    <input type="number" [(ngModel)]="productObject.pricePerUnit" matInput [formControl]="pricePerUnitFormControl"
+      [errorStateMatcher]="matcher">
     <mat-error *ngIf="pricePerUnitFormControl.hasError('required')">
       Giá <strong>chưa hợp lệ</strong>
     </mat-error>
@@ -19,7 +20,8 @@
   <br>
   <mat-form-field>
     <mat-placeholder>Mô tả</mat-placeholder>
-    <input type="text" [(ngModel)]="productObject.description" matInput [formControl]="descriptionFormControl" [errorStateMatcher]="matcher">
+    <input type="text" [(ngModel)]="productObject.description" matInput [formControl]="descriptionFormControl"
+      [errorStateMatcher]="matcher">
     <mat-error *ngIf="descriptionFormControl.hasError('required')">
       Vui lòng <strong>mô tả</strong> sản phẩm
     </mat-error>
@@ -29,6 +31,5 @@
   <input type="file" accept="image/*" (change)="changeListener($event)">
   <img height="100px" width="125px" src="{{image}}" alt="">
   <br>
-  <button type="submit" style="background-color: #6eba3c; color: white;" mat-button>Xác nhận sửa</button>
+  <button type="submit" style="background-color: #6eba3c; color: white; margin-top: 2%" mat-button>Xác nhận sửa</button>
 </form>
-</div>

@@ -15,8 +15,8 @@ cd HyperledgerComposers/
 echo "Install and deply card"
 cd ExchangeApp/server/exchange
 composer archive create -t dir -n .
-composer network install -a exchange@0.0.2.bna -c PeerAdmin@hlfv1
-composer network start -n exchange -V 0.0.2 -A admin -S adminpw -c PeerAdmin@hlfv1
+composer network install -a exchange@0.0.4.bna -c PeerAdmin@hlfv1
+composer network start -n exchange -V 0.0.4 -A admin -S adminpw -c PeerAdmin@hlfv1
 composer card import -f admin@exchange.card
 composer card list
 

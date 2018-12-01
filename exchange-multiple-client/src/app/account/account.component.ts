@@ -29,6 +29,7 @@ export class AccountComponent implements OnInit {
   getListProductBought() {
     return this.accountService.getCurrentUserId()
       .then((currentUserId) => {
+        console.log('==>>current user id: ' + currentUserId);
         return this.accountService.getMyProductBought(currentUserId);
       });
   }

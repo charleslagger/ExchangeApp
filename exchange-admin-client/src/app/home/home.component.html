@@ -5,13 +5,23 @@
         <mat-card-header>
           <img mat-card-avatar class = "avatar" src = "{{product.ownerImage}}">
           <mat-card-title>{{product.productName}}</mat-card-title>
-          <mat-card-subtitle>{{product.productType}}</mat-card-subtitle>
+          <mat-card-subtitle *ngIf='product["productType"] === "VEGETABLE"'>RAU, CỦ, QUẢ</mat-card-subtitle>
+          <mat-card-subtitle *ngIf='product["productType"] === "SMART_PHONE"'>ĐIỆN THOẠI THÔNG MINH</mat-card-subtitle>
+          <mat-card-subtitle *ngIf='product["productType"] === "CAR"'>XE</mat-card-subtitle>
+          <mat-card-subtitle *ngIf='product["productType"] === "CLOTHES"'>QUẦN, ÁO</mat-card-subtitle>
+          <!-- <mat-card-subtitle>{{product.productType}}</mat-card-subtitle> -->
         </mat-card-header>
         <img mat-card-image class = "image_pro" src="{{product.imageBase64Encode}}">
         <mat-card-content>
           Mô tả: {{product.description}} <br>
           Giá: {{product.pricePerUnit}} <br>
-          Số lượng: {{product.amount}}
+          Số lượng: {{product.amount}} <br>
+          <div *ngIf='product["productStatus"] === "BOUGHT"'>
+          Tình trạng: Đã bán
+          </div>
+          <div *ngIf='product["productStatus"] === "SELLING"'>
+              Tình trạng: Đang bán
+          </div>
         </mat-card-content>
       </mat-card>
   </mat-grid-tile>

@@ -14,7 +14,8 @@
         {{user.address.country}}
       </mat-card-content>
       <mat-card-actions>
-        <button style="background-color: #6eba3c; color: white;" mat-button>Lịch sử giao dịch</button>
+        <!-- <button style="background-color: #6eba3c; color: white;" mat-button>Lịch sử giao dịch</button> -->
+        <button style="background-color: #6eba3c; color: white;" mat-button (click)="showHistory(user)">Lịch sử giao dịch</button>
       </mat-card-actions>
     </mat-card>
   </mat-grid-tile>

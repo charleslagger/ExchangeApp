@@ -17,13 +17,6 @@ export class CartService {
   }
 
   buyProduct(productId, oldOwnerId, currentUserId, nameOldOwner, productName, nameNewOwner, productImage) {
-    // console.log('productId: ' + productId);
-    // console.log('oldOwnerId: ' + oldOwnerId);
-    // console.log('currentUserId: ' + currentUserId);
-    // console.log('nameNewUser: ' + nameNewOwner);
-    // console.log('productName: ' + productName);
-    // console.log('nameOldOwner: ' + nameOldOwner);
-    // console.log('productImage: ' + productImage);
     const transactionDetails = {
       $class: 'uet.khoenguyen.exchange.Trade',
       oldOwner: oldOwnerId,

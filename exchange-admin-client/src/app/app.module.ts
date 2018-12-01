@@ -7,9 +7,6 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './routing/app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { AccountComponent } from './account/account.component';
-import { MessageComponent } from './message/message.component';
-import { DaoComponent } from './dao/dao.component';
-import { LoginComponent } from './login/login.component';
 import { HomeService } from './home/home.service';
 import { AccountService } from './account/account.service';
 import { ComposerRestService } from './service/composer-rest-service.service';
@@ -36,13 +33,10 @@ import { HistoryAccComponent } from './history-acc/history-acc.component';
     AppComponent,
     HomeComponent,
     AccountComponent,
-    MessageComponent,
-    DaoComponent,
-    LoginComponent,
     HistoryComponent,
     HistoryAccComponent
   ],
-  entryComponents: [LoginComponent],
+  entryComponents: [HistoryAccComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

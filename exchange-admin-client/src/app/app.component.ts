@@ -3,7 +3,6 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ComposerRestService } from './service/composer-rest-service.service';
 import { AccountService } from './account/account.service';
-import { LoginComponent } from './login/login.component';
 
 @Component({
   selector: 'app-root',

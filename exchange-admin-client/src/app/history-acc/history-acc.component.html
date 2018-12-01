@@ -1,3 +1,33 @@
-<p>
-  history-acc works!
-</p>
+<div>
+  <table>
+    <tr style="background-color: #b6b8a7;">
+      <th>Tên sản phẩm</th>
+      <th>Bên mua</th>
+      <th>Bên bán</th>
+      <th>Thời gian</th>
+    </tr>
+    <tr *ngFor="let transaction of totalTransactions | async">
+      <td *ngIf='transaction["newOwner"] === ownerId'>{{transaction.productName}}
+        <img height="50px" width="50px" src="{{transaction.image}}" alt=""></td>
+      <td *ngIf='transaction["newOwner"] === ownerId'>{{transaction.newOwnerName}}</td>
+      <td *ngIf='transaction["newOwner"] === ownerId'>{{transaction.oldOwnerName}}</td>
+      <td *ngIf='transaction["newOwner"] === ownerId'>{{transaction.timestamp}}</td>
+    </tr>
+  </table>
+  <br>
+  <table>
+    <tr style="background-color: #b6b8a7;">
+      <th>Tên sản phẩm</th>
+      <th>Bên bán</th>
+      <th>Bên mua</th>
+      <th>Thời gian</th>
+    </tr>
+    <tr *ngFor="let transaction of totalTransactions | async">
+      <td *ngIf='transaction["oldOwner"] === ownerId'>{{transaction.productName}}
+        <img height="50px" width="50px" src="{{transaction.image}}" alt=""></td>
+      <td *ngIf='transaction["oldOwner"] === ownerId'>{{transaction.oldOwnerName}}</td>
+      <td *ngIf='transaction["oldOwner"] === ownerId'>{{transaction.newOwnerName}}</td>
+      <td *ngIf='transaction["oldOwner"] === ownerId'>{{transaction.timestamp}}</td>
+    </tr>
+  </table>
+</div>
