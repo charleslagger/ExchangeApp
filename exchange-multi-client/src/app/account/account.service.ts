@@ -19,7 +19,7 @@ export class AccountService {
   getMyProductSell(currentUser) {
     const httpParams = new HttpParams()
       .set('ownerId', currentUser);
-    return this.httpClient.get('https://exchangeapp.tk:3001/api/queries/myProductSelling',
+    return this.httpClient.get('https://exchangeapp.tk:3000/api/queries/myProductSelling',
       { params: httpParams, withCredentials: true }).toPromise();
   }
 
@@ -52,6 +52,7 @@ export class AccountService {
         return ('resource:' + data['participant']);
       });
   }
+  
   getUserNameById(userId) {
     return this.httpClient.get('https://exchangeapp.tk:3001/api/Collector/' + userId, { withCredentials: true }).toPromise()
       .then((user) => {
@@ -60,5 +61,15 @@ export class AccountService {
         // console.log('==>user name: ' + firstName + ' ' + lastName);
         return firstName + ' ' + lastName;
       });
+  }
+
+  deleteProductById(productId) {
+    return this.httpClient.delete('https://exchangeapp.tk:3000/api/Product/' + productId,
+      {withCredentials: true }).toPromise();
+  }
+
+  modProduct(product){
+    return this.httpClient.put('https://exchangeapp.tk:3000/api/Product/' + product.productId, product
+      ,{withCredentials: true }).toPromise();
   }
 }

@@ -7,38 +7,46 @@
     background: gray url('/assets/test/img/backgrounds/1.jpg'); 
 }
 
-.sell-body h2, p
+.sell-body h2
 {
   color: white;
 }
 
+.sell-body p
+{
+  color: rgb(5, 5, 5);
+}
+
+.my-mat-form-field{
+  width: 70%;
+  height: 40%;
+}
+
 .sell-body input{
-  color: white;
+  color: rgb(5, 5, 5);
 }
 
 .sell-form{
+  background: rgb(245, 246, 247);
   position: relative;;
-  padding-left: 40%;
-  padding-right: 45%;
+  margin-left: 40%;
+  margin-right: 40%;
+  border-radius: 5px;
 }
 
-::ng-deep .mat-form-field-underline, ::ng-deep .mat-form-field-ripple {
-  background-color: white !important;
-  color: white !important
+/* ::ng-deep .mat-form-field-underline, ::ng-deep .mat-form-field-ripple {
+  background-color: rgb(14, 13, 13) !important;
+  color: darkgrey !important
 }
 
 ::ng-deep .mat-form-field-empty.mat-form-field-label {
-    color: white;
+    color: darkgrey;
 }
 
 ::ng-deep .mat-form-field-infix {
-  color: white;
-}
-
-.placeholder {
-  color: white;
-}
+  color: darkgrey;
+} */
 
 .mat-focused .placeholder {
-  color: rgb(11, 210, 236);
+  color: rgb(65, 215, 235);
 }

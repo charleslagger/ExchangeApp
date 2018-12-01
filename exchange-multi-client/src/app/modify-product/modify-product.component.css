@@ -1,0 +1,16 @@
+::ng-deep .mat-form-field-underline, ::ng-deep .mat-form-field-ripple {
+  background-color: darkgrey !important;
+  color: darkgrey !important
+}
+
+::ng-deep .mat-form-field-empty.mat-form-field-label {
+    color: darkgrey;
+}
+
+::ng-deep .mat-form-field-infix {
+  color: darkgrey;
+}
+
+/* .mat-focused .placeholder {
+  color: rgb(11, 210, 236);;
+} */

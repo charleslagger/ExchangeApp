@@ -1,8 +1,8 @@
 <div class="sell-body">
   <h2>Tạo thông tin mặt hàng muốn bán</h2>
   <form class = "sell-form" (ngSubmit)="createProduct()" #createProForm="ngForm">
-    <mat-form-field>
-      <mat-placeholder class="placeholder">Tên sản phẩm</mat-placeholder>
+    <mat-form-field class= "my-mat-form-field">
+      <mat-placeholder>Tên sản phẩm</mat-placeholder>
       <input type="text" [(ngModel)]="productObject.name" matInput [formControl]="nameFormControl"
              [errorStateMatcher]="matcher">
       <mat-error *ngIf="nameFormControl.hasError('required')">
@@ -10,9 +10,8 @@
       </mat-error>
     </mat-form-field>
     <br>
-    <!-- <input type="text" [(ngModel)]="productObject.productType" #name="ngModel" name="productType"> -->
-    <mat-form-field>
-      <mat-placeholder class="placeholder">Chọn mặt hàng</mat-placeholder>
+    <mat-form-field class= "my-mat-form-field">
+      <mat-placeholder>Chọn mặt hàng</mat-placeholder>
       <mat-select [(ngModel)]="productObject.productType" [formControl]="productTypeControl" required>
         <mat-option>--</mat-option>
         <mat-option *ngFor="let proType of proTypes" [value]="proType">
@@ -21,10 +20,9 @@
       </mat-select>
       <mat-error *ngIf="productTypeControl.hasError('required')">Vui lòng chọn mặt hàng tương ứng</mat-error>
     </mat-form-field>
-    <!-- <input type="text" [(ngModel)]="productObject.pricePerUnit" #name="ngModel" name="pricePerUnit"> -->
     <br>
-    <mat-form-field>
-      <mat-placeholder class="placeholder">Giá một đơn vị (VNĐ)</mat-placeholder>
+    <mat-form-field class= "my-mat-form-field">
+      <mat-placeholder>Giá một đơn vị (VNĐ)</mat-placeholder>
       <input type="text" [(ngModel)]="productObject.pricePerUnit" matInput [formControl]="pricePerUnitFormControl"
              [errorStateMatcher]="matcher">
       <mat-error *ngIf="pricePerUnitFormControl.hasError('required')">
@@ -32,8 +30,8 @@
       </mat-error>
     </mat-form-field>
     <br>
-    <mat-form-field>
-      <mat-placeholder class="placeholder">Số lượng</mat-placeholder>
+    <mat-form-field class= "my-mat-form-field">
+      <mat-placeholder>Số lượng</mat-placeholder>
       <input type="number" [(ngModel)]="productObject.amount" matInput [formControl]="amountFormControl"
              [errorStateMatcher]="matcher">
       <mat-error *ngIf="amountFormControl.hasError('required')">
@@ -41,12 +39,14 @@
       </mat-error>
     </mat-form-field>
     <br>
-    <p>Chụp ảnh mặt hàng</p><br>
-    <input type="file" accept="image/*" (change)="changeListener($event)">
-    <img height="100px" width="125px" src="{{image}}" alt="">
+    <div>
+      <p>Chụp ảnh mặt hàng</p><br>
+      <input type="file" accept="image/*" (change)="changeListener($event)">
+      <img height="45%" width="50%" src="{{image}}" alt="">
+    </div>
     <br>
-    <mat-form-field>
-      <mat-placeholder class="placeholder">Mô tả mặt hàng</mat-placeholder>
+    <mat-form-field class= "my-mat-form-field">
+      <mat-placeholder>Mô tả mặt hàng</mat-placeholder>
       <input type="text" [(ngModel)]="productObject.description" matInput [formControl]="descriptionFormControl"
              [errorStateMatcher]="matcher">
       <mat-error *ngIf="descriptionFormControl.hasError('required')">
@@ -54,9 +54,7 @@
       </mat-error>
     </mat-form-field>
     <br>
-    <!-- <button type="submit" class="primary">
-      <span>Đăng mặt hàng</span>
-    </button> -->
-    <button type="submit" style="background-color: #6eba3c; color: white;" mat-button>Đăng mặt hàng</button>
+    <button type="submit" style="background-color: #6eba3c; color: white;margin-bottom: 2%" mat-button>Đăng mặt hàng</button>
+    <br>
   </form>
 </div>

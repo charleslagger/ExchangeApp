@@ -7,16 +7,9 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './routing/app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { AccountComponent } from './account/account.component';
-import { MessageComponent } from './message/message.component';
-import { CartComponent } from './cart/cart.component';
-import { DaoComponent } from './dao/dao.component';
-import { LoginComponent } from './login/login.component';
-import { SellComponent } from './sell/sell.component';
-import { BalanceComponent } from './balance/balance.component';
 import { HomeService } from './home/home.service';
 import { AccountService } from './account/account.service';
 import { ComposerRestService } from './service/composer-rest-service.service';
-import { SellService } from './sell/sell.service';
 import { HistoryComponent } from './history/history.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -33,23 +26,17 @@ import {
   MatNativeDateModule,
   MatSelectModule
 } from '@angular/material';
-import { ModifyProductComponent } from './modify-product/modify-product.component';
+import { HistoryAccComponent } from './history-acc/history-acc.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AccountComponent,
-    MessageComponent,
-    CartComponent,
-    DaoComponent,
-    LoginComponent,
-    SellComponent,
-    BalanceComponent,
     HistoryComponent,
-    ModifyProductComponent
+    HistoryAccComponent
   ],
-  entryComponents: [LoginComponent, ModifyProductComponent],
+  entryComponents: [HistoryAccComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -72,8 +59,7 @@ import { ModifyProductComponent } from './modify-product/modify-product.componen
   providers: [
     HomeService,
     AccountService,
-    ComposerRestService,
-    SellService
+    ComposerRestService
   ],
   bootstrap: [AppComponent]
 })
